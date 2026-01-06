@@ -18,7 +18,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Background Image */}
       <motion.div 
@@ -200,15 +200,15 @@ export const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex items-center gap-4 px-10 py-5 glass-strong rounded-full hover:border-primary/30 transition-all"
+              className="group flex items-center gap-4 px-10 py-5 glass-strong rounded-full border border-white/20 hover:border-primary/50 transition-all"
             >
               <motion.span
                 whileHover={{ scale: 1.1 }}
-                className="w-12 h-12 rounded-full bg-gradient-to-br from-foreground/10 to-foreground/5 flex items-center justify-center group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all"
+                className="w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-white/10 flex items-center justify-center group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all"
               >
                 <Play size={18} className="ml-0.5" />
               </motion.span>
-              <span className="font-medium">Watch Showreel</span>
+              <span className="font-medium text-foreground">Watch Showreel</span>
             </motion.button>
           </motion.div>
         </div>
