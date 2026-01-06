@@ -117,7 +117,7 @@ export const HeroSection = () => {
         style={{ y, opacity }}
         className="container mx-auto px-6 relative z-10"
       >
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-4xl text-left">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -181,7 +181,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-14 leading-relaxed"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-14 leading-relaxed"
           >
             We craft extraordinary visual experiences that captivate audiences
             worldwide. From concept to screen, we bring your stories to life
@@ -193,7 +193,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+            className="flex flex-col sm:flex-row items-start gap-5"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
