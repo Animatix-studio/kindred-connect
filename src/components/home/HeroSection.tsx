@@ -118,23 +118,6 @@ export const HeroSection = () => {
         className="container mx-auto px-6 relative z-10"
       >
         <div className="max-w-4xl text-left">
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full glass-strong mb-10"
-          >
-            <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-2.5 h-2.5 rounded-full bg-primary"
-            />
-            <span className="text-sm font-medium text-foreground/80 tracking-wide">
-              Award-Winning Animation Studio
-            </span>
-            <Sparkles size={14} className="text-primary" />
-          </motion.div>
 
           {/* Main Heading */}
           <motion.h1
@@ -193,7 +176,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-start gap-5"
+            className="flex flex-col sm:flex-row items-center justify-center gap-5"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
