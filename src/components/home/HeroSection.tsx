@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Play, ArrowRight, Sparkles } from "lucide-react";
 import { useRef } from "react";
+import heroBackground from "@/assets/hero-background.jpg";
 
 export const HeroSection = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -12,19 +13,35 @@ export const HeroSection = () => {
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
     <section
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-background noise">
+      {/* Background Image */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        style={{ scale: bgScale }}
+      >
+        <img 
+          src={heroBackground} 
+          alt="" 
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+      </motion.div>
+
+      {/* Animated Overlay Effects */}
+      <div className="absolute inset-0 z-[1]">
         {/* Primary orb */}
         <motion.div
           animate={{
             scale: [1, 1.3, 1],
-            opacity: [0.4, 0.6, 0.4],
+            opacity: [0.2, 0.35, 0.2],
             rotate: [0, 180, 360],
           }}
           transition={{
@@ -43,7 +60,7 @@ export const HeroSection = () => {
         <motion.div
           animate={{
             scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.15, 0.25, 0.15],
             x: [0, 50, 0],
             y: [0, -30, 0],
           }}
@@ -55,31 +72,13 @@ export const HeroSection = () => {
           className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[130px]"
           style={{
             background:
-              "radial-gradient(circle, hsl(280 80% 65% / 0.25), hsl(320 90% 55% / 0.1))",
-          }}
-        />
-
-        {/* Accent orb */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/2 right-1/3 w-[400px] h-[400px] rounded-full blur-[100px]"
-          style={{
-            background:
-              "radial-gradient(circle, hsl(185 80% 55% / 0.2), transparent)",
+              "radial-gradient(circle, hsl(280 80% 65% / 0.2), hsl(320 90% 55% / 0.1))",
           }}
         />
 
         {/* Grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.04]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
               linear-gradient(to right, hsl(var(--foreground)) 1px, transparent 1px),
@@ -88,9 +87,6 @@ export const HeroSection = () => {
             backgroundSize: "80px 80px",
           }}
         />
-
-        {/* Radial gradient overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_70%)]" />
       </div>
 
       {/* Floating particles */}
