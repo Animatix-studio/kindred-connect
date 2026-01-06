@@ -11,14 +11,15 @@ export const HeroSection = () => {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  // Keep the hero content stable while scrolling; only the background has parallax.
+  const y = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 1]);
   const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-24"
     >
       {/* Background Image */}
       <motion.div 
@@ -27,7 +28,7 @@ export const HeroSection = () => {
       >
         <img 
           src={heroBackground} 
-          alt="" 
+          alt="Cinematic animation studio hero background" 
           className="w-full h-full object-cover"
         />
         {/* Dark overlay for text readability */}
@@ -117,7 +118,7 @@ export const HeroSection = () => {
         style={{ y, opacity }}
         className="container mx-auto px-6 relative z-10"
       >
-        <div className="max-w-4xl text-left">
+        <div className="max-w-5xl mx-auto text-left">
 
           {/* Main Heading */}
           <motion.h1
