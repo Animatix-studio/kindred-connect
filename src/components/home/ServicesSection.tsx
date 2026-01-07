@@ -96,7 +96,7 @@ export const ServicesSection = () => {
           alt="Space background" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-background/80" />
+        <div className="absolute inset-0 bg-background/40" />
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
@@ -142,7 +142,7 @@ export const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service) => (
             <motion.div
@@ -151,7 +151,7 @@ export const ServicesSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
               className="group relative"
             >
-              <div className="relative p-8 rounded-3xl premium-card hover:border-primary/30 transition-all duration-500 h-full">
+              <div className="relative p-8 rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
                 {/* Hover gradient overlay */}
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
