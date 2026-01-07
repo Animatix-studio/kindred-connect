@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import animatixLogo from "@/assets/animatix-logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -44,18 +45,13 @@ export const Navbar = () => {
           <Link to="/" className="group relative">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="flex items-center gap-2"
+              className="flex items-center"
             >
-              <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center"
-              >
-                <Sparkles size={16} className="text-primary-foreground" />
-              </motion.div>
-              <span className="text-2xl font-display font-bold text-gradient">
-                LUMINA
-              </span>
+              <img 
+                src={animatixLogo} 
+                alt="AnimatiX Studio" 
+                className="h-12 w-auto"
+              />
             </motion.div>
           </Link>
 
