@@ -118,7 +118,7 @@ export const HeroSection = () => {
         style={{ y, opacity }}
         className="container mx-auto px-6 relative z-10"
       >
-        <div className="max-w-5xl mx-auto text-left">
+        <div className="max-w-4xl text-left">
 
           {/* Main Heading */}
           <motion.h1
