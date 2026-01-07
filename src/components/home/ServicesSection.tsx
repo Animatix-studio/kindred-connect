@@ -9,6 +9,7 @@ import {
   Wand2,
   Clapperboard,
 } from "lucide-react";
+import ourVisionBg from "@/assets/our-vision-bg.jpg";
 
 const services = [
   {
@@ -88,16 +89,21 @@ export const ServicesSection = () => {
 
   return (
     <section className="py-36 relative overflow-hidden">
-      {/* Background Effects */}
+      {/* Background Image */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
+        <img 
+          src={ourVisionBg} 
+          alt="Space background" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/80" />
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] rounded-full blur-[200px]"
           style={{
             background:
-              "radial-gradient(ellipse, hsl(38 100% 64% / 0.08), transparent)",
+              "radial-gradient(ellipse, hsl(200 100% 50% / 0.15), transparent)",
           }}
         />
       </div>
