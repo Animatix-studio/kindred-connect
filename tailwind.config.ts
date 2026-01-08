@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Exo 2", "system-ui", "sans-serif"],
-        display: ["Orbitron", "sans-serif"],
+        sans: ["Krona One", "system-ui", "sans-serif"],
+        display: ["Krona One", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
