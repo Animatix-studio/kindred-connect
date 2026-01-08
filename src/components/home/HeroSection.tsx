@@ -127,7 +127,7 @@ export const HeroSection = () => {
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] mb-10 tracking-tight"
           >
-            <span className="block">Where</span>
+            <span className="block">Crafting</span>
             <motion.span
               className="text-gradient italic inline-block"
               animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
@@ -138,9 +138,9 @@ export const HeroSection = () => {
                 backgroundSize: "300% 100%",
               }}
             >
-              Imagination
+              Dreams
             </motion.span>
-            <span className="block">Becomes</span>
+            <span className="block">in</span>
             <motion.span
               className="text-gradient-purple italic inline-block"
               animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
@@ -156,7 +156,7 @@ export const HeroSection = () => {
                 backgroundSize: "300% 100%",
               }}
             >
-              Reality
+              Motion
             </motion.span>
           </motion.h1>
 
@@ -167,9 +167,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-14 leading-relaxed"
           >
-            We craft extraordinary visual experiences that captivate audiences
-            worldwide. From concept to screen, we bring your stories to life
-            with cutting-edge animation and boundless creativity.
+            Where Imagination Take Shape
           </motion.p>
 
           {/* CTA Buttons */}
