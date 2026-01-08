@@ -6,8 +6,8 @@ import {
   Linkedin,
   Youtube,
   ArrowUpRight,
-  Sparkles,
 } from "lucide-react";
+import animatixLogo from "@/assets/animatix-logo.png";
 
 const socialLinks = [
   { icon: Instagram, href: "#", label: "Instagram" },
@@ -59,17 +59,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-flex items-center gap-3 mb-8">
-              <motion.div
-                animate={{ rotate: [0, 360] }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center"
-              >
-                <Sparkles size={18} className="text-primary-foreground" />
-              </motion.div>
-              <span className="text-3xl font-display font-bold text-gradient">
-                LUMINA
-              </span>
+            <Link to="/" className="inline-block mb-8">
+              <img 
+                src={animatixLogo} 
+                alt="AnimatiX Studio" 
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-muted-foreground max-w-sm mb-10 leading-relaxed">
               Crafting extraordinary visual experiences that captivate audiences
@@ -162,7 +157,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-20 pt-10 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm text-muted-foreground">
-            © 2024 Lumina Studios. All rights reserved.
+            © 2024 AnimatiX Studio. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-muted-foreground">
             <a
