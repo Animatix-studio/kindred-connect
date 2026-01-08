@@ -175,7 +175,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5"
+            className="flex flex-col sm:flex-row items-start justify-start gap-5"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
@@ -186,11 +186,11 @@ export const HeroSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary via-primary/80 to-accent rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
               <Link
                 to="/portfolio"
-                className="relative flex items-center gap-3 px-10 py-5 bg-primary text-primary-foreground font-semibold rounded-full transition-all"
+                className="relative flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-medium tracking-wide rounded-full transition-all uppercase text-sm"
               >
                 View Our Work
                 <ArrowRight
-                  size={18}
+                  size={16}
                   className="group-hover:translate-x-1 transition-transform"
                 />
               </Link>
@@ -199,15 +199,15 @@ export const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex items-center gap-4 px-10 py-5 glass-strong rounded-full border border-white/20 hover:border-primary/50 transition-all"
+              className="group flex items-center gap-4 px-8 py-4 glass-strong rounded-full border border-primary/20 hover:border-primary/50 transition-all"
             >
               <motion.span
                 whileHover={{ scale: 1.1 }}
-                className="w-12 h-12 rounded-full bg-gradient-to-br from-white/20 to-white/10 flex items-center justify-center group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all"
+                className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all"
               >
-                <Play size={18} className="ml-0.5" />
+                <Play size={16} className="ml-0.5" />
               </motion.span>
-              <span className="font-medium text-foreground">Watch Showreel</span>
+              <span className="font-medium text-foreground tracking-wide uppercase text-sm">Watch Showreel</span>
             </motion.button>
           </motion.div>
         </div>
