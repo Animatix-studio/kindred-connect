@@ -126,12 +126,11 @@ export const ServicesSection = () => {
             What We Do
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8">
-            Crafting Visual{" "}
-            <span className="text-gradient italic">Excellence</span>
+            Imagination has no limits—
+            <span className="text-gradient italic">why should your designs?</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            From initial concept to final delivery, we offer comprehensive
-            animation services that bring your vision to life.
+            We dive deep into the infinite depths of design to bring your most defiant dreams to life, shaping a reality where your vision knows no gravity and your story never stands still.
           </p>
           <div className="line-gradient w-24 mx-auto mt-8" />
         </motion.div>
