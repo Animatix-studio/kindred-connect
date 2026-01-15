@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ChevronLeft, ChevronRight, Play, X } from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import portfolioBg from "@/assets/portfolio-bg.jpg";
 import {
   Dialog,
@@ -139,52 +139,35 @@ export const FeaturedWork = () => {
 
   return (
     <section 
-      className="min-h-screen relative overflow-hidden flex items-center justify-center py-20"
+      className="relative overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Background Image with iPad */}
-      <div className="absolute inset-0">
+      {/* Background Image with iPad - This IS the layout */}
+      <div className="relative w-full">
         <img 
           src={portfolioBg} 
           alt="Featured projects background" 
-          className="w-full h-full object-cover"
+          className="w-full h-auto"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+        
+        {/* iPad Screen Overlay - Positioned precisely over the iPad in the image */}
+        {/* Adjust these values to match the iPad position in your background image */}
+        <div 
+          className="absolute"
+          style={{
+            top: '22%',
+            left: '37%',
+            width: '30%',
+            height: '52%',
+          }}
         >
-          <motion.span
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-block text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-5"
-          >
-            Featured Projects
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold">
-            Our Latest{" "}
-            <span className="text-gradient italic">Creations</span>
-          </h2>
-        </motion.div>
-
-        {/* iPad Screen Content - Positioned to align with the iPad in the background */}
-        <div className="flex flex-col items-center">
-          {/* Project content that appears "inside" the iPad from the background image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[600px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-full h-full overflow-hidden"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -206,12 +189,12 @@ export const FeaturedWork = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 
                 {/* Project Info on Screen */}
-                <div className="absolute bottom-6 left-6 right-6">
+                <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
                   <motion.span
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-white/20 backdrop-blur-sm text-white mb-2"
+                    className="inline-block px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-medium bg-white/20 backdrop-blur-sm text-white mb-1 md:mb-2"
                   >
                     {currentProject.category}
                   </motion.span>
@@ -219,7 +202,7 @@ export const FeaturedWork = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="text-white text-2xl sm:text-3xl font-display font-bold mb-1"
+                    className="text-white text-base sm:text-lg md:text-2xl lg:text-3xl font-display font-bold mb-0.5 md:mb-1"
                   >
                     {currentProject.title}
                   </motion.h3>
@@ -227,21 +210,21 @@ export const FeaturedWork = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-white/70 text-sm sm:text-base line-clamp-2"
+                    className="text-white/70 text-[10px] sm:text-xs md:text-sm line-clamp-2 hidden sm:block"
                   >
                     {currentProject.description}
                   </motion.p>
                 </div>
 
-                {/* Click indicator */}
+                {/* Click indicator - Play button */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 }}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 >
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors">
-                    <Play className="text-white ml-1" size={28} />
+                  <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors">
+                    <Play className="text-white ml-0.5" size={20} />
                   </div>
                 </motion.div>
               </motion.div>
@@ -250,52 +233,51 @@ export const FeaturedWork = () => {
             {/* Navigation Arrows */}
             <button
               onClick={(e) => { e.stopPropagation(); prevSlide(); }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
             >
-              <ChevronLeft className="text-white" size={20} />
+              <ChevronLeft className="text-white" size={16} />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); nextSlide(); }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
             >
-              <ChevronRight className="text-white" size={20} />
+              <ChevronRight className="text-white" size={16} />
             </button>
           </motion.div>
+        </div>
+      </div>
 
-          {/* Slide Indicators */}
-          <div className="flex justify-center gap-2 mt-6">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentSlide 
-                    ? "w-8 bg-primary" 
-                    : "w-2 bg-white/30 hover:bg-white/50"
-                }`}
+      {/* Bottom Controls - Below the image */}
+      <div className="bg-background py-6 md:py-10">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col items-center">
+            {/* Slide Indicators */}
+            <div className="flex justify-center gap-2">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlide 
+                      ? "w-8 bg-primary" 
+                      : "w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Progress Bar */}
+            <div className="mt-4 w-full max-w-md h-1 bg-muted rounded-full overflow-hidden">
+              <motion.div
+                key={currentSlide}
+                initial={{ width: "0%" }}
+                animate={{ width: isPaused || selectedProject ? "0%" : "100%" }}
+                transition={{ duration: 10, ease: "linear" }}
+                className="h-full bg-primary"
               />
-            ))}
-          </div>
+            </div>
 
-          {/* Progress Bar */}
-          <div className="mt-4 w-full max-w-[600px] h-1 bg-white/10 rounded-full overflow-hidden">
-            <motion.div
-              key={currentSlide}
-              initial={{ width: "0%" }}
-              animate={{ width: isPaused || selectedProject ? "0%" : "100%" }}
-              transition={{ duration: 10, ease: "linear" }}
-              className="h-full bg-primary"
-            />
-          </div>
-
-          {/* Current Project Details */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-8 max-w-xl"
-          >
+            {/* Current Project Details */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
@@ -303,33 +285,34 @@ export const FeaturedWork = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
+                className="text-center mt-4"
               >
                 <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase">
                   {currentProject.client} • {currentProject.year}
                 </span>
               </motion.div>
             </AnimatePresence>
-          </motion.div>
 
-          {/* View All Projects Button */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="mt-8"
-          >
-            <Link
-              to="/portfolio"
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 backdrop-blur-sm"
+            {/* View All Projects Button */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="mt-6"
             >
-              <span className="font-medium text-white">View All Projects</span>
-              <ArrowUpRight
-                size={18}
-                className="text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
-              />
-            </Link>
-          </motion.div>
+              <Link
+                to="/portfolio"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+              >
+                <span className="font-medium text-foreground">View All Projects</span>
+                <ArrowUpRight
+                  size={18}
+                  className="text-foreground group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"
+                />
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
 
