@@ -151,15 +151,16 @@ export const FeaturedWork = () => {
           className="w-full h-auto"
         />
         
-        {/* iPad Screen Overlay - Positioned precisely over the iPad in the image */}
-        {/* Adjust these values to match the iPad position in your background image */}
+        {/* iPad Screen Overlay - Positioned precisely over the iPad screen in the image */}
+        {/* The iPad in the image: frame starts ~34% from left, screen ~38% from left */}
+        {/* Screen area is inside the dark frame with rounded corners */}
         <div 
           className="absolute"
           style={{
-            top: '22%',
-            left: '37%',
+            top: '10%',
+            left: '38%',
             width: '30%',
-            height: '52%',
+            height: '73%',
           }}
         >
           <motion.div
