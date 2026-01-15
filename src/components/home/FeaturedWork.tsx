@@ -151,14 +151,14 @@ export const FeaturedWork = () => {
           className="w-full h-auto"
         />
         
-        {/* iPad Screen Overlay - aligned to the marked (blue) screen area */}
+        {/* iPad Screen Overlay - aligned precisely to the white screen area inside the iPad frame */}
         <div
-          className="absolute rounded-[18px] overflow-hidden"
+          className="absolute overflow-hidden"
           style={{
-            top: "18%",
-            left: "45.5%",
-            width: "33%",
-            height: "60%",
+            top: '12.5%',
+            left: '38.5%',
+            width: '38%',
+            height: '75%',
           }}
         >
           <motion.div
