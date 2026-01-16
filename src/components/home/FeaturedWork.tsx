@@ -139,6 +139,7 @@ export const FeaturedWork = () => {
 
   return (
     <section 
+      id="featured-work"
       className="relative overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -151,14 +152,15 @@ export const FeaturedWork = () => {
           className="w-full h-auto"
         />
         
-        {/* iPad Screen Overlay - aligned to the actual inner white screen (blue-marked area) */}
+        {/* iPad Screen Overlay - aligned to the inner screen area (not the bezel) */}
         <div
-          className="absolute overflow-hidden rounded-[14px]"
+          className="absolute overflow-hidden rounded-[12px]"
           style={{
-            top: '30%',
-            left: '46.5%',
-            width: '39%',
-            height: '44%',
+            // Tuned to sit fully inside the iPad screen area in portfolio-bg.jpg
+            top: "55.5%",
+            left: "35.5%",
+            width: "43%",
+            height: "30.5%",
           }}
         >
           <motion.div
