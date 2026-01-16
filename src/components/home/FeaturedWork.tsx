@@ -107,7 +107,11 @@ const projects = [
   },
 ];
 
-export const FeaturedWork = () => {
+export const FeaturedWork = ({
+  debugOverlay = false,
+}: {
+  debugOverlay?: boolean;
+}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -127,7 +131,7 @@ export const FeaturedWork = () => {
   // Auto-slide every 10 seconds
   useEffect(() => {
     if (isPaused || selectedProject) return;
-    
+
     const interval = setInterval(() => {
       nextSlide();
     }, 10000);
@@ -138,7 +142,7 @@ export const FeaturedWork = () => {
   const currentProject = projects[currentSlide];
 
   return (
-    <section 
+    <section
       id="featured-work"
       className="relative overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
@@ -146,21 +150,24 @@ export const FeaturedWork = () => {
     >
       {/* Background Image with iPad - This IS the layout */}
       <div className="relative w-full">
-        <img 
-          src={portfolioBg} 
-          alt="Featured projects background" 
+        <img
+          src={portfolioBg}
+          alt="Featured projects background"
           className="w-full h-auto"
         />
-        
+
         {/* iPad Screen Overlay - aligned to the inner screen area (not the bezel) */}
         <div
-          className="absolute overflow-hidden rounded-[12px]"
+          className={
+            "absolute overflow-hidden rounded-[18px]" +
+            (debugOverlay ? " ring-2 ring-destructive/80" : "")
+          }
           style={{
-            // Tuned to sit fully inside the iPad screen area in portfolio-bg.jpg
-            top: "55.5%",
-            left: "35.5%",
-            width: "43%",
-            height: "30.5%",
+            // Fill the visible iPad screen area (white rectangle) in portfolio-bg.jpg
+            top: "45%",
+            left: "45.2%",
+            width: "32.8%",
+            height: "44%",
           }}
         >
           <motion.div
