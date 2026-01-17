@@ -107,11 +107,7 @@ const projects = [
   },
 ];
 
-export const FeaturedWork = ({
-  debugOverlay = false,
-}: {
-  debugOverlay?: boolean;
-}) => {
+export const FeaturedWork = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isPaused, setIsPaused] = useState(false);
@@ -156,18 +152,15 @@ export const FeaturedWork = ({
           className="w-full h-auto"
         />
 
-        {/* iPad Screen Overlay - aligned to the inner screen area (not the bezel) */}
+        {/* iPad Screen Overlay - aligned to the inner screen area */}
         <div
-          className={
-            "absolute overflow-hidden rounded-[18px]" +
-            (debugOverlay ? " ring-2 ring-destructive/80" : "")
-          }
+          className="absolute overflow-hidden rounded-[8px]"
           style={{
-            // Fill the visible iPad screen area (white rectangle) in portfolio-bg.jpg
-            top: "45%",
-            left: "45.2%",
-            width: "32.8%",
-            height: "44%",
+            // Precisely fit the iPad white screen area in portfolio-bg.jpg
+            top: "21.5%",
+            left: "37.8%",
+            width: "42.5%",
+            height: "57%",
           }}
         >
           <motion.div
