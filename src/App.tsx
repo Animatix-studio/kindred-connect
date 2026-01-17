@@ -8,9 +8,6 @@ import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import DebugFeaturedWork from "./pages/DebugFeaturedWork";
-
-
 
 const queryClient = new QueryClient();
 
@@ -25,10 +22,15 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/__debug/featured-work" element={<DebugFeaturedWork />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
