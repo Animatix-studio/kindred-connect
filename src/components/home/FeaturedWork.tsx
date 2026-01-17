@@ -154,13 +154,13 @@ export const FeaturedWork = () => {
 
         {/* iPad Screen Overlay - aligned to the inner screen area */}
         <div
-          className="absolute overflow-hidden rounded-[8px]"
+          className="absolute overflow-hidden rounded-[18px]"
           style={{
-            // Precisely fit the iPad white screen area in portfolio-bg.jpg
-            top: "21.5%",
-            left: "37.8%",
-            width: "42.5%",
-            height: "57%",
+            // Fill the iPad white screen area in portfolio-bg.jpg (inset to avoid bezel overlap)
+            top: "35.2%",
+            left: "40.6%",
+            width: "39.0%",
+            height: "50.8%",
           }}
         >
           <motion.div
