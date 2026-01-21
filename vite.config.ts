@@ -5,6 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  // Set base to the repository name so assets are referenced correctly on GitHub Pages
+  base: "/kindred-connect/",
   server: {
     host: "::",
     port: 8080,
