@@ -159,12 +159,13 @@ export const FeaturedWork = () => {
             // Pixel-fit to the iPad's WHITE screen area in portfolio-bg.jpg.
             // NOTE: the screen is slightly perspective-skewed, so we use a clip-path to avoid
             // either leaving white gaps or overlapping the bezel.
-            top: "33.25%",
-            left: "39.40%",
-            width: "40.80%",
-            height: "56.00%",
+            top: "34.35%",
+            left: "39.48%",
+            width: "40.66%",
+            height: "54.85%",
             borderRadius: "2px",
-            clipPath: "polygon(1.8% 0.9%, 98.3% 2.2%, 97.0% 98.8%, 2.7% 97.5%)",
+            // Nudge the top edge inward a bit to prevent bezel overlap.
+            clipPath: "polygon(2.2% 3.6%, 97.8% 4.8%, 97.1% 98.6%, 3.0% 97.2%)",
           }}
         >
           <motion.div
