@@ -32,9 +32,10 @@ jobs:
       - name: Build
         run: bun run build
         env:
-          # Set to your repo name if deploying to username.github.io/repo-name
-          # Leave empty for root domain deployment
-          GITHUB_PAGES_BASE: ""
+          # Auto-detect base path for GitHub Pages:
+          # - User/Org site repo: <owner>.github.io   -> '/'
+          # - Project site repo: <repo>              -> '/<repo>/'
+          GITHUB_PAGES_BASE: ${{ endsWith(github.event.repository.name, '.github.io') && '/' || format('/{0}/', github.event.repository.name) }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
