@@ -88,7 +88,7 @@ export const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-36 relative overflow-hidden">
+    <section className="py-20 sm:py-36 relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -125,7 +125,7 @@ export const ServicesSection = () => {
           >
             What We Do
           </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 sm:mb-8">
             Imagination has no limits—
             <span className="text-gradient italic">why should your designs?</span>
           </h2>

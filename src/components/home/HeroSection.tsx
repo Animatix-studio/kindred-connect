@@ -19,7 +19,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-24"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-24"
     >
       {/* Background Image */}
       <motion.div 
@@ -125,7 +125,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] mb-10 tracking-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] mb-6 sm:mb-10 tracking-tight"
           >
             <span className="block">Crafting</span>
             <motion.span
@@ -165,7 +165,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-14 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 sm:mb-14 leading-relaxed"
           >
             Where Imagination Take Shape
           </motion.p>
@@ -207,7 +207,7 @@ export const HeroSection = () => {
               >
                 <Play size={16} className="ml-0.5" />
               </motion.span>
-              <span className="font-medium text-foreground tracking-wide uppercase text-sm">Watch Showreel</span>
+              <span className="font-medium text-foreground tracking-wide uppercase text-xs sm:text-sm">Watch Showreel</span>
             </motion.button>
           </motion.div>
         </div>

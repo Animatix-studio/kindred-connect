@@ -13,7 +13,7 @@ const clients = [
 
 export const ClientsSection = () => {
   return (
-    <section className="py-28 overflow-hidden relative">
+    <section className="py-16 sm:py-28 overflow-hidden relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
 
@@ -53,7 +53,7 @@ export const ClientsSection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex gap-20 mb-12"
+          className="flex gap-10 sm:gap-20 mb-8 sm:mb-12"
         >
           {[...clients, ...clients].map((client, index) => (
             <motion.div
@@ -62,7 +62,7 @@ export const ClientsSection = () => {
               className="group cursor-pointer flex-shrink-0"
             >
               <span
-                className={`text-4xl md:text-5xl font-display font-bold text-muted-foreground/20 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
+                className={`text-2xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/20 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
               >
                 {client.name}
               </span>
@@ -78,7 +78,7 @@ export const ClientsSection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex gap-20"
+          className="flex gap-10 sm:gap-20"
         >
           {[...clients.reverse(), ...clients].map((client, index) => (
             <motion.div
@@ -87,7 +87,7 @@ export const ClientsSection = () => {
               className="group cursor-pointer flex-shrink-0"
             >
               <span
-                className={`text-4xl md:text-5xl font-display font-bold text-muted-foreground/15 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
+                className={`text-2xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/15 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
               >
                 {client.name}
               </span>

@@ -195,12 +195,12 @@ export const FeaturedWork = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 
                 {/* Project Info on Screen */}
-                <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6">
+                <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 md:bottom-6 md:left-6 md:right-6">
                   <motion.span
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="inline-block px-2 py-0.5 md:px-3 md:py-1 rounded-full text-[10px] md:text-xs font-medium bg-white/20 backdrop-blur-sm text-white mb-1 md:mb-2"
+                    className="inline-block px-1.5 py-0.5 sm:px-2 md:px-3 md:py-1 rounded-full text-[8px] sm:text-[10px] md:text-xs font-medium bg-white/20 backdrop-blur-sm text-white mb-0.5 sm:mb-1 md:mb-2"
                   >
                     {currentProject.category}
                   </motion.span>
@@ -208,7 +208,7 @@ export const FeaturedWork = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="text-white text-base sm:text-lg md:text-2xl lg:text-3xl font-display font-bold mb-0.5 md:mb-1"
+                    className="text-white text-xs sm:text-base md:text-2xl lg:text-3xl font-display font-bold mb-0.5 md:mb-1"
                   >
                     {currentProject.title}
                   </motion.h3>
@@ -216,7 +216,7 @@ export const FeaturedWork = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-white/70 text-[10px] sm:text-xs md:text-sm line-clamp-2 hidden sm:block"
+                    className="text-white/70 text-[10px] sm:text-xs md:text-sm line-clamp-2 hidden md:block"
                   >
                     {currentProject.description}
                   </motion.p>
@@ -229,8 +229,8 @@ export const FeaturedWork = () => {
                   transition={{ delay: 0.5 }}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 >
-                  <div className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors">
-                    <Play className="text-white ml-0.5" size={20} />
+                  <div className="w-7 h-7 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors">
+                    <Play className="text-white ml-0.5 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                   </div>
                 </motion.div>
               </motion.div>
@@ -239,22 +239,22 @@ export const FeaturedWork = () => {
             {/* Navigation Arrows */}
             <button
               onClick={(e) => { e.stopPropagation(); prevSlide(); }}
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
+              className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
             >
-              <ChevronLeft className="text-white" size={16} />
+              <ChevronLeft className="text-white w-3 h-3 sm:w-4 sm:h-4" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); nextSlide(); }}
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
+              className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
             >
-              <ChevronRight className="text-white" size={16} />
+              <ChevronRight className="text-white w-3 h-3 sm:w-4 sm:h-4" />
             </button>
           </motion.div>
         </div>
       </div>
 
       {/* Bottom Controls - Below the image */}
-      <div className="bg-background py-6 md:py-10">
+      <div className="bg-background py-4 sm:py-6 md:py-10">
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center">
             {/* Slide Indicators */}
