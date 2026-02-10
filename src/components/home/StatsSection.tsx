@@ -39,7 +39,7 @@ const Counter = ({ value, suffix }: CounterProps) => {
 
 export const StatsSection = () => {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="py-16 sm:py-32 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-card/40" />
@@ -66,7 +66,7 @@ export const StatsSection = () => {
               className="relative group"
             >
               {/* Card */}
-              <div className="text-center p-8 rounded-3xl premium-card hover:border-primary/20 transition-all duration-500">
+              <div className="text-center p-4 sm:p-8 rounded-3xl premium-card hover:border-primary/20 transition-all duration-500">
                 {/* Hover glow */}
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 glow-soft" />
 

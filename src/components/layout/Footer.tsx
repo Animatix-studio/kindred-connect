@@ -55,10 +55,10 @@ export const Footer = () => {
       {/* Top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="container mx-auto px-6 py-24 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16">
+      <div className="container mx-auto px-6 py-12 sm:py-24 relative">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-16">
           {/* Brand Column */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <Link to="/" className="inline-block mb-8">
               <img 
                 src={animatixLogo} 
@@ -137,7 +137,7 @@ export const Footer = () => {
                 industry insights.
               </p>
             </div>
-            <div className="flex gap-3 w-full md:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
               <input
                 type="email"
                 placeholder="Enter your email"
