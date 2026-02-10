@@ -29,7 +29,8 @@ export const HeroSection = () => {
         <img 
           src={heroBackground} 
           alt="Cinematic animation studio hero background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center sm:object-center"
+          style={{ objectPosition: 'center 30%' }}
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50" />
