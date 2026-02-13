@@ -81,7 +81,7 @@ export const CTASection = () => {
         </motion.div>
       ))}
 
-      <div className="container mx-auto px-6 relative">
+      <div className="container mx-auto px-4 sm:px-6 relative">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,7 +126,7 @@ export const CTASection = () => {
           </h2>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-14 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-muted-foreground mb-8 sm:mb-14 max-w-2xl mx-auto leading-relaxed">
             Let's collaborate and bring your vision to life. From concept to
             completion, we're here to make magic happen.
           </p>
@@ -142,7 +142,7 @@ export const CTASection = () => {
 
             <Link
               to="/contact"
-              className="relative inline-flex items-center gap-4 px-12 py-6 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-semibold text-lg rounded-full transition-all shadow-2xl shadow-primary/25"
+              className="relative inline-flex items-center gap-3 sm:gap-4 px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-semibold text-base sm:text-lg rounded-full transition-all shadow-2xl shadow-primary/25"
             >
               Start Your Project
               <motion.span
@@ -160,7 +160,7 @@ export const CTASection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-muted-foreground"
+            className="mt-8 sm:mt-16 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-muted-foreground"
           >
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500" />

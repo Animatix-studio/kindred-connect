@@ -50,8 +50,8 @@ export const StatsSection = () => {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
       </div>
 
-      <div className="container mx-auto px-6 relative">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+      <div className="container mx-auto px-4 sm:px-6 relative">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8 lg:gap-4">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -86,7 +86,7 @@ export const StatsSection = () => {
                 </motion.div>
 
                 {/* Number */}
-                <div className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gradient mb-4">
+                <div className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-gradient mb-2 sm:mb-4">
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </div>
 

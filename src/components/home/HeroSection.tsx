@@ -19,7 +19,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16 sm:pt-24 sm:pb-24"
+      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-24"
     >
       {/* Background Image */}
       <motion.div 

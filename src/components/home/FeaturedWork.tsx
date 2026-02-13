@@ -254,7 +254,7 @@ export const FeaturedWork = () => {
       </div>
 
       {/* Bottom Controls - Below the image */}
-      <div className="bg-background py-4 sm:py-6 md:py-10">
+      <div className="bg-background py-3 sm:py-6 md:py-10">
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center">
             {/* Slide Indicators */}

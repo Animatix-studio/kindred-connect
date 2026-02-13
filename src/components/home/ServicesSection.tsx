@@ -88,7 +88,7 @@ export const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 sm:py-36 relative overflow-hidden">
+    <section className="py-14 sm:py-36 relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -108,14 +108,14 @@ export const ServicesSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 relative">
+      <div className="container mx-auto px-4 sm:px-6 relative">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-20"
         >
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
@@ -125,11 +125,11 @@ export const ServicesSection = () => {
           >
             What We Do
           </motion.span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6 sm:mb-8">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 sm:mb-8">
             Imagination has no limits—
             <span className="text-gradient italic">why should your designs?</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed">
             We dive deep into the infinite depths of design to bring your most defiant dreams to life, shaping a reality where your vision knows no gravity and your story never stands still.
           </p>
           <div className="line-gradient w-24 mx-auto mt-8" />
@@ -141,7 +141,7 @@ export const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
         >
           {services.map((service) => (
             <motion.div
@@ -150,7 +150,7 @@ export const ServicesSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
               className="group relative"
             >
-              <div className="relative p-8 rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
+              <div className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
                 {/* Hover gradient overlay */}
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
