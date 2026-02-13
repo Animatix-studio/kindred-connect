@@ -13,7 +13,7 @@ const clients = [
 
 export const ClientsSection = () => {
   return (
-    <section className="py-16 sm:py-28 overflow-hidden relative">
+    <section className="py-12 sm:py-28 overflow-hidden relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
 
@@ -23,7 +23,7 @@ export const ClientsSection = () => {
       {/* Bottom line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
 
-      <div className="container mx-auto px-6 mb-16 relative">
+      <div className="container mx-auto px-4 sm:px-6 mb-8 sm:mb-16 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

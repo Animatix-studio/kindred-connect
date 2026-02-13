@@ -55,8 +55,8 @@ export const Footer = () => {
       {/* Top gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
-      <div className="container mx-auto px-6 py-12 sm:py-24 relative">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-16">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-24 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-16">
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-2">
             <Link to="/" className="inline-block mb-8">
@@ -125,7 +125,7 @@ export const Footer = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 p-10 rounded-3xl premium-card"
+          className="mt-12 sm:mt-20 p-6 sm:p-10 rounded-2xl sm:rounded-3xl premium-card"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
@@ -155,7 +155,7 @@ export const Footer = () => {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="mt-20 pt-10 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mt-10 sm:mt-20 pt-8 sm:pt-10 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
           <p className="text-sm text-muted-foreground">
             © 2024 AnimatiX Studio. All rights reserved.
           </p>
