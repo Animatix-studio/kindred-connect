@@ -19,7 +19,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-24"
+      className="relative min-h-[85svh] sm:min-h-[100svh] flex items-center overflow-hidden pt-24 pb-10 sm:pt-24 sm:pb-24"
     >
       {/* Background Image */}
       <motion.div 
@@ -29,8 +29,8 @@ export const HeroSection = () => {
         <img 
           src={heroBackground} 
           alt="Cinematic animation studio hero background" 
-          className="w-full h-full object-cover object-center sm:object-center"
-          style={{ objectPosition: 'center 30%' }}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center center' }}
         />
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50" />
@@ -119,14 +119,14 @@ export const HeroSection = () => {
         style={{ y, opacity }}
         className="container mx-auto px-6 relative z-10"
       >
-        <div className="max-w-4xl text-left">
+        <div className="max-w-4xl text-left mt-4 sm:mt-0">
 
           {/* Main Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] mb-6 sm:mb-10 tracking-tight"
+            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] mb-4 sm:mb-10 tracking-tight"
           >
             <span className="block">Crafting</span>
             <motion.span
@@ -166,7 +166,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-8 sm:mb-14 leading-relaxed"
+            className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-6 sm:mb-14 leading-relaxed"
           >
             Where Imagination Take Shape
           </motion.p>
@@ -176,7 +176,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-start justify-start gap-5"
+            className="flex flex-col sm:flex-row items-start justify-start gap-3 sm:gap-5"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
@@ -187,7 +187,7 @@ export const HeroSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary via-primary/80 to-accent rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
               <Link
                 to="/portfolio"
-                className="relative flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-medium tracking-wide rounded-full transition-all uppercase text-sm"
+                className="relative flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-medium tracking-wide rounded-full transition-all uppercase text-xs sm:text-sm"
               >
                 View Our Work
                 <ArrowRight
@@ -200,11 +200,11 @@ export const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex items-center gap-4 px-8 py-4 glass-strong rounded-full border border-primary/20 hover:border-primary/50 transition-all"
+              className="group flex items-center gap-3 sm:gap-4 px-6 py-3 sm:px-8 sm:py-4 glass-strong rounded-full border border-primary/20 hover:border-primary/50 transition-all"
             >
               <motion.span
                 whileHover={{ scale: 1.1 }}
-                className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center group-hover:from-primary group-hover:to-primary/80 group-hover:text-primary-foreground transition-all"
               >
                 <Play size={16} className="ml-0.5" />
               </motion.span>

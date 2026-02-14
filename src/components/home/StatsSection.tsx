@@ -39,7 +39,7 @@ const Counter = ({ value, suffix }: CounterProps) => {
 
 export const StatsSection = () => {
   return (
-    <section className="py-16 sm:py-32 relative overflow-hidden">
+    <section className="py-12 sm:py-32 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-card/40" />
@@ -80,7 +80,7 @@ export const StatsSection = () => {
                     stiffness: 200,
                     delay: 0.2 + index * 0.1,
                   }}
-                  className="text-4xl mb-4"
+                  className="text-4xl mb-2 sm:mb-4"
                 >
                   {stat.icon}
                 </motion.div>

@@ -88,7 +88,7 @@ export const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-14 sm:py-36 relative overflow-hidden">
+    <section className="py-12 sm:py-36 relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -125,7 +125,7 @@ export const ServicesSection = () => {
           >
             What We Do
           </motion.span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 sm:mb-8">
+          <h2 className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-3 sm:mb-8">
             Imagination has no limits—
             <span className="text-gradient italic">why should your designs?</span>
           </h2>
@@ -141,7 +141,7 @@ export const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8"
         >
           {services.map((service) => (
             <motion.div
@@ -150,7 +150,7 @@ export const ServicesSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
               className="group relative"
             >
-              <div className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
+              <div className="relative p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
                 {/* Hover gradient overlay */}
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -164,16 +164,16 @@ export const ServicesSection = () => {
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.iconGradient} p-[1px] mb-7`}
+                    className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.iconGradient} p-[1px] mb-4 sm:mb-7`}
                   >
-                    <div className="w-full h-full rounded-2xl bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
+                    <div className="w-full h-full rounded-xl sm:rounded-2xl bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
                       <service.icon
-                        className={`w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300`}
+                        className={`w-5 h-5 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300`}
                       />
                     </div>
                   </motion.div>
 
-                  <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
 
