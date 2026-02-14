@@ -13,7 +13,7 @@ const clients = [
 
 export const ClientsSection = () => {
   return (
-    <section className="py-12 sm:py-28 overflow-hidden relative">
+    <section className="py-8 sm:py-28 overflow-hidden relative">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background" />
 

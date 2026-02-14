@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, Star } from "lucide-react";
 
 export const CTASection = () => {
   return (
-    <section className="py-20 sm:py-36 relative overflow-hidden">
+    <section className="py-14 sm:py-36 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Main gradient orb */}
@@ -109,7 +109,7 @@ export const CTASection = () => {
           </motion.div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-6 sm:mb-8 leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-display font-bold mb-4 sm:mb-8 leading-tight">
             Ready to Create Something{" "}
             <motion.span
               className="text-gradient italic inline-block"
