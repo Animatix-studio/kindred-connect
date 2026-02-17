@@ -105,13 +105,16 @@ const Shop = () => {
                     <span className="text-xl font-bold text-primary">
                       {product.price}
                     </span>
-                    <motion.button
+                    <motion.a
+                      href={`https://wa.me/918828293396?text=${encodeURIComponent(`Hi, I'm interested in buying "${product.title}" (${product.price}). Please share the details.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-5 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full"
+                      className="px-5 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full inline-block"
                     >
                       Buy Now
-                    </motion.button>
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>
