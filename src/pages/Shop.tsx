@@ -56,29 +56,65 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* Mockup Feature */}
+      {/* Marathi Group: Mockup + Product */}
       <section className="px-4 sm:px-6 pb-12 sm:pb-20">
         <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-2xl sm:rounded-3xl overflow-hidden premium-card"
+            className="premium-card rounded-2xl sm:rounded-3xl overflow-hidden"
           >
-            <img
-              src={ganeshMockup}
-              alt="Ganesh Chaturthi Katha Book Mockup"
-              className="w-full h-auto object-cover"
-            />
+            <div className="grid grid-cols-1 lg:grid-cols-2">
+              <div className="overflow-hidden">
+                <img
+                  src={ganeshMockup}
+                  alt="Ganesh Chaturthi Katha Book Mockup"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={products[0].image}
+                    alt={products[0].title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-5 sm:p-6 flex flex-col justify-center flex-1">
+                  <h3 className="text-lg font-display font-bold mb-1 text-foreground">
+                    {products[0].title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {products[0].subtitle}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xl font-bold text-primary">
+                      {products[0].price}
+                    </span>
+                    <motion.a
+                      href={`https://wa.me/918828293396?text=${encodeURIComponent(`Hi, I'm interested in buying "${products[0].title}" (${products[0].price}). Please share the details.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="px-5 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full inline-block"
+                    >
+                      Buy Now
+                    </motion.a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Products Grid */}
+      {/* Hindi & English Individual Cards */}
       <section className="px-4 sm:px-6 pb-16 sm:pb-24">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {products.map((product, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+            {products.slice(1).map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
