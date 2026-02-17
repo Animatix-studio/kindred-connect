@@ -74,11 +74,19 @@ const Shop = () => {
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
+      {/* Marathi & Hindi Group */}
+      <section className="px-4 sm:px-6 pb-10 sm:pb-16">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {products.map((product, index) => (
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xl sm:text-2xl font-display font-bold mb-6 text-foreground"
+          >
+            गणेश चतुर्थी कथा
+          </motion.h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+            {products.slice(0, 2).map((product, index) => (
               <motion.div
                 key={product.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -119,6 +127,59 @@ const Shop = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* English Edition */}
+      <section className="px-4 sm:px-6 pb-16 sm:pb-24">
+        <div className="container mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xl sm:text-2xl font-display font-bold mb-6 text-foreground"
+          >
+            English Edition
+          </motion.h2>
+          <div className="max-w-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="group premium-card rounded-2xl overflow-hidden"
+            >
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src={products[2].image}
+                  alt={products[2].title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5 sm:p-6">
+                <h3 className="text-lg font-display font-bold mb-1 text-foreground">
+                  {products[2].title}
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  {products[2].subtitle}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xl font-bold text-primary">
+                    {products[2].price}
+                  </span>
+                  <motion.a
+                    href={`https://wa.me/918828293396?text=${encodeURIComponent(`Hi, I'm interested in buying "${products[2].title}" (${products[2].price}). Please share the details.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-5 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full inline-block"
+                  >
+                    Buy Now
+                  </motion.a>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
