@@ -1,64 +1,61 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { Award, Users, Target, Heart, Sparkles } from "lucide-react";
+import { Award, Users, Target, Heart, Sparkles, Palette, Film, Lightbulb } from "lucide-react";
 import { useRef } from "react";
+import ourVisionBg from "@/assets/our-vision-bg.jpg";
 
 const values = [
   {
     icon: Target,
     title: "Excellence",
     description:
-      "We pursue perfection in every frame, pushing boundaries to deliver exceptional results.",
+      "We pursue perfection in every frame, pushing boundaries to deliver exceptional 2D & 3D animations.",
     gradient: "from-amber-500 to-orange-500",
   },
   {
-    icon: Users,
-    title: "Collaboration",
+    icon: Palette,
+    title: "Creativity",
     description:
-      "Great work comes from great partnerships. We work closely with our clients at every stage.",
+      "Every project is a canvas. We combine cutting-edge technology with artistic excellence to craft visual stories.",
     gradient: "from-cyan-500 to-blue-500",
   },
   {
     icon: Heart,
     title: "Passion",
     description:
-      "Animation is our art and our love. We pour our hearts into every project we undertake.",
+      "Animation is our art and our love. We breathe life into imagination with every project we undertake.",
     gradient: "from-pink-500 to-rose-500",
   },
   {
-    icon: Award,
+    icon: Lightbulb,
     title: "Innovation",
     description:
-      "We stay at the forefront of technology and techniques to create groundbreaking work.",
+      "We stay at the forefront of animation technology and techniques to create groundbreaking visual experiences.",
     gradient: "from-purple-500 to-violet-500",
   },
 ];
 
 const team = [
   {
-    name: "Alexandra Chen",
-    role: "Creative Director",
-    image:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+    name: "Creative Director",
+    role: "2D & 3D Animation Lead",
+    icon: Film,
   },
   {
-    name: "Marcus Rivera",
-    role: "Head of Animation",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    name: "Art Director",
+    role: "Character & Environment Design",
+    icon: Palette,
   },
   {
-    name: "Sarah Mitchell",
-    role: "Art Director",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+    name: "Technical Director",
+    role: "3D Modeling & Rendering",
+    icon: Lightbulb,
   },
   {
-    name: "David Park",
-    role: "Technical Director",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    name: "Project Manager",
+    role: "Client Relations & Delivery",
+    icon: Users,
   },
 ];
 
@@ -120,19 +117,20 @@ const About = () => {
               About Us
             </motion.span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-10 leading-tight">
-              Storytellers at{" "}
-              <span className="text-gradient italic">Heart</span>
+              Bringing Your <span className="text-gradient italic">Dreams</span>{" "}
+              Into Motion
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
-              Founded in 2012, Lumina Studios has grown from a small team of
-              passionate animators to an award-winning studio trusted by the
-              world's leading brands and entertainment companies.
+              AnimatiX Studio is a premium animation studio specializing in
+              cutting-edge 2D/3D animation, character design, and visual
+              storytelling that captivates audiences and elevates brands to new
+              heights.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Story Section */}
+      {/* Vision & Mission Section */}
       <section className="py-28 relative">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -143,27 +141,26 @@ const About = () => {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
-                Our <span className="text-gradient">Story</span>
+                Our <span className="text-gradient">Vision & Mission</span>
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  What began as a dream in a small garage has evolved into one
-                  of the most respected animation studios in the industry. Our
-                  journey started with a simple belief: that animation has the
-                  power to move hearts and change minds.
+                  At AnimatiX Studio, we believe animation is more than just
+                  moving pictures—it's the art of breathing life into
+                  imagination. Our vision is to be the world's leading creative
+                  partner for brands and storytellers who dare to dream big.
                 </p>
                 <p>
-                  Today, our team of over 100 talented artists, animators, and
-                  technicians continues to push the boundaries of what's
-                  possible in visual storytelling. From feature films to
-                  commercials, from games to immersive experiences, we bring
-                  creativity and technical excellence to every project.
+                  We combine cutting-edge technology with artistic excellence to
+                  create animations that don't just capture attention, but create
+                  lasting emotional connections. Every frame we craft is a step
+                  toward transforming how the world experiences visual
+                  storytelling.
                 </p>
                 <p>
-                  Our work has been recognized with over 45 industry awards,
-                  including multiple Annie Awards, BAFTA nominations, and Cannes
-                  Lions. But our greatest achievement is the trust placed in us
-                  by clients who return time and again.
+                  Our mission is to empower businesses and creators with premium
+                  animation services that elevate their message, engage their
+                  audience, and drive meaningful results.
                 </p>
               </div>
             </motion.div>
@@ -179,13 +176,13 @@ const About = () => {
                 <motion.img
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
-                  alt="Lumina Studios Team"
+                  src={ourVisionBg}
+                  alt="AnimatiX Studio workspace"
                   className="w-full h-full object-cover"
                 />
               </div>
 
-              {/* Floating stat card */}
+              {/* Floating stat cards */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -194,10 +191,25 @@ const About = () => {
                 className="absolute -bottom-8 -left-8 p-8 glass-strong rounded-2xl"
               >
                 <p className="text-5xl font-display font-bold text-gradient">
-                  12+
+                  50+
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  Years of Excellence
+                  Projects Completed
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="absolute -top-6 -right-6 p-6 glass-strong rounded-2xl"
+              >
+                <p className="text-4xl font-display font-bold text-gradient">
+                  15+
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Happy Clients
                 </p>
               </motion.div>
 
@@ -226,7 +238,7 @@ const About = () => {
               Our <span className="text-gradient">Values</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide everything we create
+              The principles that guide every frame we create
             </p>
             <div className="line-gradient w-24 mx-auto mt-8" />
           </motion.div>
@@ -247,7 +259,6 @@ const About = () => {
                 className="group"
               >
                 <div className="p-10 rounded-3xl premium-card text-center hover:border-primary/20 transition-all duration-500 h-full">
-                  {/* Icon */}
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} p-[1px] mx-auto mb-8`}
@@ -286,7 +297,7 @@ const About = () => {
               Meet the <span className="text-gradient italic">Creatives</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              The talented individuals who bring imagination to life
+              A team of 5+ talented artists, animators, and designers bringing imagination to life
             </p>
           </motion.div>
 
@@ -304,40 +315,20 @@ const About = () => {
                 }}
                 className="group"
               >
-                <div className="relative aspect-square rounded-3xl overflow-hidden mb-6">
-                  <motion.img
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                  {/* Hover overlay */}
+                <div className="p-8 rounded-3xl premium-card text-center hover:border-primary/20 transition-all duration-500 h-full flex flex-col items-center justify-center">
                   <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    className="absolute inset-0 bg-primary/10 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent p-[2px] mb-6"
                   >
-                    <div className="flex gap-3">
-                      {["Twitter", "LinkedIn"].map((social) => (
-                        <div
-                          key={social}
-                          className="w-10 h-10 rounded-full bg-foreground/10 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-primary transition-colors"
-                        >
-                          <span className="text-xs font-medium">
-                            {social[0]}
-                          </span>
-                        </div>
-                      ))}
+                    <div className="w-full h-full rounded-full bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
+                      <member.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
                   </motion.div>
+                  <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mt-1">{member.role}</p>
                 </div>
-                <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-muted-foreground text-sm">{member.role}</p>
               </motion.div>
             ))}
           </div>
