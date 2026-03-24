@@ -29,6 +29,14 @@ export const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       <motion.nav
@@ -37,11 +45,11 @@ export const Navbar = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "glass-strong py-4 shadow-lg shadow-background/50"
-            : "bg-transparent py-6"
+            ? "glass-strong py-3 sm:py-4 shadow-lg shadow-background/50"
+            : "bg-transparent py-4 sm:py-6"
         }`}
       >
-        <div className="container mx-auto px-6 flex items-center justify-between">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
           {/* Logo */}
           <Link to="/" className="group relative">
             <motion.div
@@ -51,7 +59,7 @@ export const Navbar = () => {
               <img 
                 src={animatixLogo} 
                 alt="AnimatiX Studio" 
-                className="h-12 w-auto"
+                className="h-10 sm:h-12 w-auto"
               />
             </motion.div>
           </Link>
@@ -103,6 +111,7 @@ export const Navbar = () => {
             whileTap={{ scale: 0.95 }}
             className="md:hidden relative w-10 h-10 rounded-full glass-strong flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             <AnimatePresence mode="wait">
               {isMobileMenuOpen ? (
@@ -149,7 +158,7 @@ export const Navbar = () => {
             />
 
             {/* Content */}
-            <div className="relative h-full flex flex-col items-center justify-center gap-10 p-8">
+            <div className="relative h-full overflow-y-auto flex flex-col items-center justify-start gap-6 px-6 pt-28 pb-10">
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
@@ -160,7 +169,7 @@ export const Navbar = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`text-4xl font-display font-bold transition-colors ${
+                    className={`text-3xl sm:text-4xl font-display font-bold transition-colors text-center ${
                       location.pathname === link.path
                         ? "text-gradient"
                         : "text-foreground/60 hover:text-foreground"
@@ -180,7 +189,7 @@ export const Navbar = () => {
               >
                 <Link
                   to="/contact"
-                  className="px-10 py-4 bg-primary text-primary-foreground font-semibold rounded-full inline-block"
+                  className="px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-full inline-flex items-center justify-center min-w-[220px]"
                 >
                   Start a Project
                 </Link>

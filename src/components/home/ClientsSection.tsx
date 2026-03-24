@@ -33,7 +33,7 @@ export const ClientsSection = () => {
           <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase block mb-3">
             Trusted Partners
           </span>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm sm:text-lg px-4">
             Collaborating with the world's most innovative brands
           </p>
         </motion.div>
@@ -42,8 +42,8 @@ export const ClientsSection = () => {
       {/* Infinite scroll animation */}
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-background via-background/80 to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-48 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-48 bg-gradient-to-l from-background via-background/80 to-transparent z-10" />
 
         {/* First row - left to right */}
         <motion.div
@@ -53,7 +53,7 @@ export const ClientsSection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex gap-10 sm:gap-20 mb-8 sm:mb-12"
+          className="flex gap-8 sm:gap-20 mb-6 sm:mb-12"
         >
           {[...clients, ...clients].map((client, index) => (
             <motion.div
@@ -62,7 +62,7 @@ export const ClientsSection = () => {
               className="group cursor-pointer flex-shrink-0"
             >
               <span
-                className={`text-2xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/20 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
+                 className={`text-xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/20 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
               >
                 {client.name}
               </span>
@@ -78,16 +78,16 @@ export const ClientsSection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex gap-10 sm:gap-20"
+          className="flex gap-8 sm:gap-20"
         >
-          {[...clients.reverse(), ...clients].map((client, index) => (
+          {[...[...clients].reverse(), ...clients].map((client, index) => (
             <motion.div
               key={`row2-${client.name}-${index}`}
               whileHover={{ scale: 1.1, y: -5 }}
               className="group cursor-pointer flex-shrink-0"
             >
               <span
-                className={`text-2xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/15 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
+                 className={`text-xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/15 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
               >
                 {client.name}
               </span>

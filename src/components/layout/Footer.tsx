@@ -56,30 +56,30 @@ export const Footer = () => {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-24 relative">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16">
           {/* Brand Column */}
-          <div className="col-span-2 lg:col-span-2">
-            <Link to="/" className="inline-block mb-8">
+          <div className="sm:col-span-2 lg:col-span-2">
+            <Link to="/" className="inline-block mb-6 sm:mb-8">
               <img 
                 src={animatixLogo} 
                 alt="AnimatiX Studio" 
                 className="h-12 w-auto"
               />
             </Link>
-            <p className="text-muted-foreground max-w-sm mb-10 leading-relaxed">
+            <p className="text-muted-foreground max-w-sm mb-6 sm:mb-10 leading-relaxed text-sm sm:text-base">
               Crafting extraordinary visual experiences that captivate audiences
               and bring imagination to life through the art of animation.
             </p>
 
             {/* Social Links */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 rounded-xl premium-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
+                  className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl premium-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon size={20} />
@@ -97,10 +97,10 @@ export const Footer = () => {
               viewport={{ once: true }}
               transition={{ delay: colIndex * 0.1 }}
             >
-              <h4 className="font-semibold text-foreground mb-8 text-sm tracking-wide uppercase">
+              <h4 className="font-semibold text-foreground mb-4 sm:mb-8 text-sm tracking-wide uppercase">
                 {column.title}
               </h4>
-              <ul className="space-y-5">
+              <ul className="space-y-3 sm:space-y-5">
                 {column.links.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -127,12 +127,12 @@ export const Footer = () => {
           viewport={{ once: true }}
           className="mt-12 sm:mt-20 p-6 sm:p-10 rounded-2xl sm:rounded-3xl premium-card"
         >
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h3 className="text-xl font-display font-bold mb-2">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-6 sm:gap-8">
+            <div className="text-center md:text-left">
+              <h3 className="text-lg sm:text-xl font-display font-bold mb-2">
                 Stay in the loop
               </h3>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-muted-foreground text-sm max-w-xl mx-auto md:mx-0">
                 Subscribe for exclusive updates, behind-the-scenes content, and
                 industry insights.
               </p>
@@ -146,7 +146,7 @@ export const Footer = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-full whitespace-nowrap"
+                className="px-8 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-full whitespace-nowrap w-full sm:w-auto"
               >
                 Subscribe
               </motion.button>
@@ -155,11 +155,11 @@ export const Footer = () => {
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 sm:mt-20 pt-8 sm:pt-10 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
+        <div className="mt-10 sm:mt-20 pt-8 sm:pt-10 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 text-center md:text-left">
           <p className="text-sm text-muted-foreground">
             © 2024 AnimatiX Studio. All rights reserved.
           </p>
-          <div className="flex gap-8 text-sm text-muted-foreground">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-muted-foreground">
             <a
               href="#"
               className="hover:text-foreground transition-colors duration-300"

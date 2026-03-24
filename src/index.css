@@ -91,6 +91,18 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body,
+  #root {
+    min-height: 100%;
+    overflow-x: clip;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
   }
   
   ::selection {
