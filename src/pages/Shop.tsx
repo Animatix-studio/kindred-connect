@@ -32,7 +32,7 @@ const products = [
 
 const Shop = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* Hero */}
@@ -101,7 +101,7 @@ const Shop = () => {
                   <p className="text-muted-foreground text-sm mb-4">
                     {product.subtitle}
                   </p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <span className="text-xl font-bold text-primary">
                       {product.price}
                     </span>
@@ -111,7 +111,7 @@ const Shop = () => {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-5 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full inline-block"
+                      className="px-5 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-full inline-flex items-center justify-center w-full sm:w-auto"
                     >
                       Buy Now
                     </motion.a>

@@ -163,7 +163,7 @@ export const CTASection = () => {
             className="mt-8 sm:mt-16 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-8 text-xs sm:text-sm text-muted-foreground"
           >
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500" />
+              <span className="w-2 h-2 rounded-full bg-primary/70" />
               Available for new projects
             </span>
             <span className="flex items-center gap-2">

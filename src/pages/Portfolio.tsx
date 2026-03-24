@@ -73,16 +73,16 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-28 sm:pt-32 pb-14 sm:pb-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
             animate={{ opacity: [0.2, 0.4, 0.2] }}
             transition={{ duration: 10, repeat: Infinity }}
-            className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full blur-[200px]"
+            className="absolute top-0 left-1/4 w-[320px] h-[320px] sm:w-[600px] sm:h-[600px] rounded-full blur-[120px] sm:blur-[200px]"
             style={{
               background:
                 "radial-gradient(circle, hsl(280 80% 65% / 0.15), transparent)",
@@ -90,7 +90,7 @@ const Portfolio = () => {
           />
         </div>
 
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto px-4 sm:px-6 relative">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,11 +104,11 @@ const Portfolio = () => {
             >
               Our Portfolio
             </motion.span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-4 sm:mb-6">
               Explore Our{" "}
               <span className="text-gradient italic">Creative Work</span>
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-base sm:text-lg leading-relaxed px-2 sm:px-0">
               Discover the projects that showcase our passion for animation and
               visual storytelling. Each piece represents our commitment to
               pushing creative boundaries.
@@ -118,9 +118,9 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="pb-32">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <section className="pb-16 sm:pb-32">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -134,7 +134,7 @@ const Portfolio = () => {
                 }}
               >
                 <div className="group cursor-pointer">
-                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden">
+                  <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden">
                     {/* Image */}
                     <motion.img
                       src={project.image}
@@ -168,38 +168,38 @@ const Portfolio = () => {
                     />
 
                     {/* Content */}
-                    <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                    <div className="absolute inset-0 p-5 sm:p-8 flex flex-col justify-between">
                       {/* Top - Category */}
-                      <span className="self-start px-4 py-1.5 rounded-full text-xs font-medium glass-strong">
+                      <span className="self-start px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-medium glass-strong">
                         {project.category}
                       </span>
 
                       {/* Bottom - Title */}
                       <div>
-                        <span className="text-primary text-sm font-medium mb-2 block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="text-primary text-xs sm:text-sm font-medium mb-1 sm:mb-2 block opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                           View Project
                         </span>
-                        <h3 className="text-2xl md:text-3xl font-display font-bold group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold group-hover:text-primary transition-colors duration-300">
                           {project.title}
                         </h3>
                       </div>
                     </div>
 
                     {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
                       <motion.div
                         whileHover={{ scale: 1.1 }}
-                        className="w-20 h-20 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-2xl"
+                        className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-2xl"
                       >
                         <Play
                           className="text-primary-foreground ml-1"
-                          size={28}
+                          size={20}
                         />
                       </motion.div>
                     </div>
 
                     {/* Arrow */}
-                    <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <div className="hidden sm:block absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="w-12 h-12 rounded-full bg-foreground/10 backdrop-blur-md flex items-center justify-center border border-foreground/10">
                         <ArrowUpRight className="text-foreground" size={20} />
                       </div>
