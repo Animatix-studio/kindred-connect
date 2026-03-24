@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Play, ArrowRight, Sparkles } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
 
@@ -19,7 +19,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[85svh] sm:min-h-[100svh] flex items-center overflow-hidden pt-24 pb-10 sm:pt-24 sm:pb-24"
+      className="relative min-h-[78svh] sm:min-h-[100svh] flex items-center overflow-hidden pt-28 pb-16 sm:pt-24 sm:pb-24"
     >
       {/* Background Image */}
       <motion.div 
@@ -51,7 +51,7 @@ export const HeroSection = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute top-1/4 left-1/4 w-[700px] h-[700px] rounded-full blur-[150px]"
+          className="absolute top-1/4 left-1/4 w-[420px] h-[420px] sm:w-[700px] sm:h-[700px] rounded-full blur-[120px] sm:blur-[150px]"
           style={{
             background:
               "radial-gradient(circle, hsl(38 100% 64% / 0.3), hsl(25 100% 55% / 0.1))",
@@ -71,7 +71,7 @@ export const HeroSection = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full blur-[130px]"
+          className="absolute bottom-1/4 right-1/4 w-[340px] h-[340px] sm:w-[600px] sm:h-[600px] rounded-full blur-[100px] sm:blur-[130px]"
           style={{
             background:
               "radial-gradient(circle, hsl(280 80% 65% / 0.2), hsl(320 90% 55% / 0.1))",
@@ -95,7 +95,7 @@ export const HeroSection = () => {
       {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-primary/40"
+          className="hidden sm:block absolute w-1 h-1 rounded-full bg-primary/40"
           style={{
             left: `${15 + i * 15}%`,
             top: `${20 + (i % 3) * 25}%`,
@@ -117,7 +117,7 @@ export const HeroSection = () => {
       {/* Content */}
       <motion.div
         style={{ y, opacity }}
-        className="container mx-auto px-6 relative z-10"
+        className="container mx-auto px-4 sm:px-6 relative z-10"
       >
         <div className="max-w-4xl text-left mt-4 sm:mt-0">
 
@@ -126,7 +126,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] mb-4 sm:mb-10 tracking-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.05] mb-4 sm:mb-10 tracking-tight max-w-[10ch]"
           >
             <span className="block">Crafting</span>
             <motion.span
@@ -166,7 +166,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-sm sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-6 sm:mb-14 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mb-6 sm:mb-14 leading-relaxed"
           >
             Where Imagination Take Shape
           </motion.p>
@@ -176,7 +176,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row items-start justify-start gap-3 sm:gap-5"
+            className="flex flex-col sm:flex-row items-stretch sm:items-start justify-start gap-3 sm:gap-5 w-full sm:w-auto max-w-md sm:max-w-none"
           >
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
@@ -187,7 +187,7 @@ export const HeroSection = () => {
               <div className="absolute -inset-1 bg-gradient-to-r from-primary via-primary/80 to-accent rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
               <Link
                 to="/portfolio"
-                className="relative flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-medium tracking-wide rounded-full transition-all uppercase text-xs sm:text-sm"
+                className="relative flex items-center justify-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-primary text-primary-foreground font-medium tracking-wide rounded-full transition-all uppercase text-xs sm:text-sm w-full sm:w-auto"
               >
                 View Our Work
                 <ArrowRight
@@ -200,7 +200,7 @@ export const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex items-center gap-3 sm:gap-4 px-6 py-3 sm:px-8 sm:py-4 glass-strong rounded-full border border-primary/20 hover:border-primary/50 transition-all"
+              className="group flex items-center justify-center gap-3 sm:gap-4 px-6 py-3 sm:px-8 sm:py-4 glass-strong rounded-full border border-primary/20 hover:border-primary/50 transition-all w-full sm:w-auto"
             >
               <motion.span
                 whileHover={{ scale: 1.1 }}
@@ -218,7 +218,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2"
+          className="hidden sm:block absolute bottom-12 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}

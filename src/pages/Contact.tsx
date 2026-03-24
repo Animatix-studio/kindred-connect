@@ -63,11 +63,11 @@ const Contact = () => {
   };
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-20 relative overflow-hidden">
+      <section className="pt-28 sm:pt-36 pb-14 sm:pb-20 relative overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 noise">
           <motion.div
@@ -77,7 +77,7 @@ const Contact = () => {
               x: [0, 50, 0],
             }}
             transition={{ duration: 15, repeat: Infinity }}
-            className="absolute bottom-0 right-0 w-[700px] h-[700px] rounded-full blur-[150px]"
+            className="absolute bottom-0 right-0 w-[360px] h-[360px] sm:w-[700px] sm:h-[700px] rounded-full blur-[110px] sm:blur-[150px]"
             style={{
               background:
                 "radial-gradient(circle, hsl(280 80% 65% / 0.2), transparent)",
@@ -86,7 +86,7 @@ const Contact = () => {
           <motion.div
             animate={{ scale: [1.2, 1, 1.2], opacity: [0.1, 0.2, 0.1] }}
             transition={{ duration: 12, repeat: Infinity }}
-            className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full blur-[130px]"
+            className="absolute top-0 left-0 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] rounded-full blur-[90px] sm:blur-[130px]"
             style={{
               background:
                 "radial-gradient(circle, hsl(38 100% 64% / 0.1), transparent)",
@@ -94,7 +94,7 @@ const Contact = () => {
           />
         </div>
 
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto px-4 sm:px-6 relative">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,16 +105,16 @@ const Contact = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+              className="inline-flex items-center gap-2 text-primary text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-4 sm:mb-6"
             >
               <Sparkles size={14} />
               Get in Touch
             </motion.span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-10 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 sm:mb-10 leading-tight">
               Let's Create{" "}
               <span className="text-gradient italic">Together</span>
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-xl text-muted-foreground leading-relaxed max-w-3xl">
               Have a project in mind? We'd love to hear about it. Share your
               vision with us and let's bring it to life.
             </p>
@@ -123,19 +123,19 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20">
+      <section className="py-14 sm:py-20">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-20">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-3">
+                    <label className="block text-sm font-medium mb-2 sm:mb-3">
                       Your Name
                     </label>
                     <Input
@@ -145,11 +145,11 @@ const Contact = () => {
                       }
                       placeholder="John Doe"
                       required
-                      className="bg-card/50 border-border/50 focus:border-primary/50 h-14 rounded-xl transition-all"
+                        className="bg-card/50 border-border/50 focus:border-primary/50 h-12 sm:h-14 rounded-xl transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-3">
+                    <label className="block text-sm font-medium mb-2 sm:mb-3">
                       Email Address
                     </label>
                     <Input
@@ -160,14 +160,14 @@ const Contact = () => {
                       }
                       placeholder="john@example.com"
                       required
-                      className="bg-card/50 border-border/50 focus:border-primary/50 h-14 rounded-xl transition-all"
+                        className="bg-card/50 border-border/50 focus:border-primary/50 h-12 sm:h-14 rounded-xl transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-3">
+                    <label className="block text-sm font-medium mb-2 sm:mb-3">
                       Company
                     </label>
                     <Input
@@ -176,11 +176,11 @@ const Contact = () => {
                         setFormData({ ...formData, company: e.target.value })
                       }
                       placeholder="Your Company"
-                      className="bg-card/50 border-border/50 focus:border-primary/50 h-14 rounded-xl transition-all"
+                        className="bg-card/50 border-border/50 focus:border-primary/50 h-12 sm:h-14 rounded-xl transition-all"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-3">
+                    <label className="block text-sm font-medium mb-2 sm:mb-3">
                       Budget Range
                     </label>
                     <Input
@@ -189,13 +189,13 @@ const Contact = () => {
                         setFormData({ ...formData, budget: e.target.value })
                       }
                       placeholder="$50,000 - $100,000"
-                      className="bg-card/50 border-border/50 focus:border-primary/50 h-14 rounded-xl transition-all"
+                        className="bg-card/50 border-border/50 focus:border-primary/50 h-12 sm:h-14 rounded-xl transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-3">
+                  <label className="block text-sm font-medium mb-2 sm:mb-3">
                     Tell us about your project
                   </label>
                   <Textarea
@@ -219,7 +219,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="relative w-full md:w-auto px-12 py-7 bg-primary text-primary-foreground font-semibold rounded-full text-base"
+                    className="relative w-full md:w-auto px-10 sm:px-12 py-6 sm:py-7 bg-primary text-primary-foreground font-semibold rounded-full text-base"
                   >
                     {isSubmitting ? (
                       <motion.span
@@ -250,12 +250,12 @@ const Contact = () => {
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="lg:pl-10"
             >
-              <div className="sticky top-32">
-                <h2 className="text-2xl font-display font-bold mb-10">
+              <div className="lg:sticky lg:top-32">
+                <h2 className="text-xl sm:text-2xl font-display font-bold mb-6 sm:mb-10">
                   Contact Information
                 </h2>
 
-                <div className="space-y-5 mb-14">
+                <div className="space-y-4 sm:space-y-5 mb-8 sm:mb-14">
                   {contactInfo.map((info, index) => (
                     <motion.a
                       key={info.label}
@@ -264,10 +264,10 @@ const Contact = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
                       whileHover={{ x: 5 }}
-                      className="group flex items-center gap-5 p-5 rounded-2xl premium-card hover:border-primary/20 transition-all duration-300"
+                      className="group flex items-center gap-4 sm:gap-5 p-4 sm:p-5 rounded-2xl premium-card hover:border-primary/20 transition-all duration-300"
                     >
                       <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${info.gradient} p-[1px]`}
+                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${info.gradient} p-[1px] flex-shrink-0`}
                       >
                         <div className="w-full h-full rounded-xl bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
                           <info.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors" />
@@ -277,7 +277,7 @@ const Contact = () => {
                         <p className="text-sm text-muted-foreground">
                           {info.label}
                         </p>
-                        <p className="font-medium group-hover:text-primary transition-colors">
+                          <p className="font-medium group-hover:text-primary transition-colors text-sm sm:text-base break-words">
                           {info.value}
                         </p>
                       </div>
@@ -290,7 +290,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="p-8 rounded-3xl premium-card mb-8"
+                  className="p-5 sm:p-8 rounded-3xl premium-card mb-6 sm:mb-8"
                 >
                   <div className="flex items-center gap-3 mb-6">
                     <Clock className="w-5 h-5 text-primary" />
@@ -319,7 +319,7 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 }}
-                  className="p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20"
+                  className="p-5 sm:p-8 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <Calendar className="w-5 h-5 text-primary" />

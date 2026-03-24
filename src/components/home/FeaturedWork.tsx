@@ -144,8 +144,76 @@ export const FeaturedWork = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
+      <div className="md:hidden px-4 pt-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="premium-card rounded-[1.75rem] overflow-hidden"
+        >
+          <div className="relative aspect-[4/5]">
+            <AnimatePresence mode="wait">
+              <motion.button
+                key={currentSlide}
+                type="button"
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 text-left"
+                onClick={() => setSelectedProject(currentProject)}
+              >
+                <img
+                  src={currentProject.image}
+                  alt={currentProject.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${currentProject.gradient} to-transparent opacity-70`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent" />
+
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium glass-strong mb-4">
+                    {currentProject.category}
+                  </span>
+                  <h3 className="text-2xl font-display font-bold mb-2 text-foreground">
+                    {currentProject.title}
+                  </h3>
+                  <p className="text-sm text-foreground/75 leading-relaxed mb-4 line-clamp-3">
+                    {currentProject.description}
+                  </p>
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-xs font-semibold tracking-[0.18em] uppercase text-primary">
+                      {currentProject.client} • {currentProject.year}
+                    </span>
+                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-background/25 backdrop-blur-md border border-border/40">
+                      <Play className="w-4 h-4 text-foreground ml-0.5" />
+                    </span>
+                  </div>
+                </div>
+              </motion.button>
+            </AnimatePresence>
+
+            <button
+              type="button"
+              onClick={prevSlide}
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/60 backdrop-blur-md flex items-center justify-center border border-border/40 z-10"
+            >
+              <ChevronLeft className="text-foreground w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={nextSlide}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/60 backdrop-blur-md flex items-center justify-center border border-border/40 z-10"
+            >
+              <ChevronRight className="text-foreground w-4 h-4" />
+            </button>
+          </div>
+        </motion.div>
+      </div>
+
       {/* Background Image with iPad - This IS the layout */}
-      <div className="relative w-full">
+      <div className="relative w-full hidden md:block">
         <img
           src={portfolioBg}
           alt="Featured projects background"
@@ -254,8 +322,8 @@ export const FeaturedWork = () => {
       </div>
 
       {/* Bottom Controls - Below the image */}
-      <div className="bg-background py-3 sm:py-6 md:py-10">
-        <div className="container mx-auto px-6">
+      <div className="bg-background py-4 sm:py-6 md:py-10">
+        <div className="container mx-auto px-4 sm:px-6">
           <div className="flex flex-col items-center">
             {/* Slide Indicators */}
             <div className="flex justify-center gap-2">
@@ -273,7 +341,7 @@ export const FeaturedWork = () => {
             </div>
 
             {/* Progress Bar */}
-            <div className="mt-4 w-full max-w-md h-1 bg-muted rounded-full overflow-hidden">
+            <div className="mt-4 w-full max-w-xs sm:max-w-md h-1 bg-muted rounded-full overflow-hidden">
               <motion.div
                 key={currentSlide}
                 initial={{ width: "0%" }}
@@ -291,9 +359,9 @@ export const FeaturedWork = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="text-center mt-4"
+                className="text-center mt-4 px-4"
               >
-                <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase">
+                <span className="text-primary text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase">
                   {currentProject.client} • {currentProject.year}
                 </span>
               </motion.div>
@@ -305,11 +373,11 @@ export const FeaturedWork = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="mt-6"
+              className="mt-5 sm:mt-6"
             >
               <Link
                 to="/portfolio"
-                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                className="group inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 text-sm sm:text-base"
               >
                 <span className="font-medium text-foreground">View All Projects</span>
                 <ArrowUpRight

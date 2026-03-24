@@ -4,7 +4,7 @@ import { ArrowRight, Sparkles, Star } from "lucide-react";
 
 export const CTASection = () => {
   return (
-    <section className="py-14 sm:py-36 relative overflow-hidden">
+    <section className="py-16 sm:py-36 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
         {/* Main gradient orb */}
@@ -18,7 +18,7 @@ export const CTASection = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full blur-[180px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[520px] h-[520px] sm:w-[900px] sm:h-[900px] rounded-full blur-[120px] sm:blur-[180px]"
           style={{
             background:
               "radial-gradient(circle, hsl(38 100% 64% / 0.2), hsl(280 80% 65% / 0.1))",
@@ -36,7 +36,7 @@ export const CTASection = () => {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[150px]"
+          className="absolute top-0 right-0 w-[320px] h-[320px] sm:w-[500px] sm:h-[500px] rounded-full blur-[100px] sm:blur-[150px]"
           style={{
             background: "radial-gradient(circle, hsl(280 80% 65% / 0.15), transparent)",
           }}
@@ -56,7 +56,7 @@ export const CTASection = () => {
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute"
+          className="hidden sm:block absolute"
           style={{
             left: `${10 + i * 20}%`,
             top: `${15 + (i % 3) * 30}%`,
@@ -95,7 +95,7 @@ export const CTASection = () => {
             whileInView={{ scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-10 relative"
+            className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full mb-8 sm:mb-10 relative"
           >
             {/* Glow ring */}
             <motion.div
@@ -104,7 +104,7 @@ export const CTASection = () => {
               className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 blur-xl"
             />
             <div className="relative w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border border-primary/20">
-              <Sparkles className="w-8 h-8 text-primary" />
+                <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
             </div>
           </motion.div>
 
@@ -126,7 +126,7 @@ export const CTASection = () => {
           </h2>
 
           {/* Description */}
-          <p className="text-base md:text-xl text-muted-foreground mb-8 sm:mb-14 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-xl text-muted-foreground mb-8 sm:mb-14 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
             Let's collaborate and bring your vision to life. From concept to
             completion, we're here to make magic happen.
           </p>
@@ -142,7 +142,7 @@ export const CTASection = () => {
 
             <Link
               to="/contact"
-              className="relative inline-flex items-center gap-3 sm:gap-4 px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-semibold text-base sm:text-lg rounded-full transition-all shadow-2xl shadow-primary/25"
+              className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-semibold text-base sm:text-lg rounded-full transition-all shadow-2xl shadow-primary/25 w-full sm:w-auto"
             >
               Start Your Project
               <motion.span
@@ -160,10 +160,10 @@ export const CTASection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="mt-8 sm:mt-16 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-muted-foreground"
+            className="mt-8 sm:mt-16 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-8 text-xs sm:text-sm text-muted-foreground"
           >
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-green-500" />
+              <span className="w-2 h-2 rounded-full bg-primary/70" />
               Available for new projects
             </span>
             <span className="flex items-center gap-2">

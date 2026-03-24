@@ -69,11 +69,11 @@ const About = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
-    <main ref={containerRef} className="min-h-screen bg-background">
+    <main ref={containerRef} className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-36 pb-24 relative overflow-hidden">
+      <section className="pt-28 sm:pt-36 pb-14 sm:pb-24 relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 noise">
           <motion.div
@@ -83,7 +83,7 @@ const About = () => {
               rotate: [0, 90, 0],
             }}
             transition={{ duration: 15, repeat: Infinity }}
-            className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full blur-[150px]"
+            className="absolute top-0 right-0 w-[360px] h-[360px] sm:w-[700px] sm:h-[700px] rounded-full blur-[120px] sm:blur-[150px]"
             style={{
               background:
                 "radial-gradient(circle, hsl(280 80% 65% / 0.2), transparent)",
@@ -92,7 +92,7 @@ const About = () => {
           <motion.div
             animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
             transition={{ duration: 12, repeat: Infinity }}
-            className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full blur-[130px]"
+            className="absolute bottom-0 left-0 w-[320px] h-[320px] sm:w-[600px] sm:h-[600px] rounded-full blur-[100px] sm:blur-[130px]"
             style={{
               background:
                 "radial-gradient(circle, hsl(38 100% 64% / 0.15), transparent)",
@@ -100,7 +100,7 @@ const About = () => {
           />
         </div>
 
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto px-4 sm:px-6 relative">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,16 +111,16 @@ const About = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-6"
+              className="inline-flex items-center gap-2 text-primary text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase mb-4 sm:mb-6"
             >
               <Sparkles size={14} />
               About Us
             </motion.span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-10 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 sm:mb-10 leading-tight max-w-[12ch] sm:max-w-none">
               Bringing Your <span className="text-gradient italic">Dreams</span>{" "}
               Into Motion
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-xl text-muted-foreground leading-relaxed max-w-3xl">
               AnimatiX Studio is a premium animation studio specializing in
               cutting-edge 2D/3D animation, character design, and visual
               storytelling that captivates audiences and elevates brands to new
@@ -131,19 +131,19 @@ const About = () => {
       </section>
 
       {/* Vision & Mission Section */}
-      <section className="py-28 relative">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+      <section className="py-16 sm:py-28 relative">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-20 items-center">
             <motion.div
               initial={{ opacity: 0, x: -60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-6 sm:mb-8">
                 Our <span className="text-gradient">Vision & Mission</span>
               </h2>
-              <div className="space-y-6 text-muted-foreground leading-relaxed">
+              <div className="space-y-5 sm:space-y-6 text-muted-foreground leading-relaxed text-sm sm:text-base">
                 <p>
                   At AnimatiX Studio, we believe animation is more than just
                   moving pictures—it's the art of breathing life into
@@ -170,7 +170,7 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-              className="relative"
+              className="relative max-w-xl mx-auto lg:max-w-none"
             >
               <div className="aspect-[4/3] rounded-3xl overflow-hidden">
                 <motion.img
@@ -188,12 +188,12 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="absolute -bottom-8 -left-8 p-8 glass-strong rounded-2xl"
+                className="absolute left-4 bottom-4 sm:-bottom-8 sm:-left-8 p-4 sm:p-8 glass-strong rounded-2xl"
               >
-                <p className="text-5xl font-display font-bold text-gradient">
+                <p className="text-3xl sm:text-5xl font-display font-bold text-gradient">
                   50+
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                   Projects Completed
                 </p>
               </motion.div>
@@ -203,47 +203,47 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="absolute -top-6 -right-6 p-6 glass-strong rounded-2xl"
+                className="absolute top-4 right-4 sm:-top-6 sm:-right-6 p-4 sm:p-6 glass-strong rounded-2xl"
               >
-                <p className="text-4xl font-display font-bold text-gradient">
+                <p className="text-2xl sm:text-4xl font-display font-bold text-gradient">
                   15+
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-xs sm:text-sm text-muted-foreground mt-1">
                   Happy Clients
                 </p>
               </motion.div>
 
               {/* Decorative element */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full border border-primary/20" />
+              <div className="hidden sm:block absolute -top-4 -right-4 w-24 h-24 rounded-full border border-primary/20" />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values Section */}
-      <section className="py-28 relative overflow-hidden">
+      <section className="py-16 sm:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-card/30" />
 
-        <div className="container mx-auto px-6 relative">
+        <div className="container mx-auto px-4 sm:px-6 relative">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-12 sm:mb-20"
           >
             <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
               Our Philosophy
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 sm:mb-6">
               Our <span className="text-gradient">Values</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base px-4 sm:px-0">
               The principles that guide every frame we create
             </p>
             <div className="line-gradient w-24 mx-auto mt-8" />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={value.title}
@@ -258,7 +258,7 @@ const About = () => {
                 whileHover={{ y: -10 }}
                 className="group"
               >
-                <div className="p-10 rounded-3xl premium-card text-center hover:border-primary/20 transition-all duration-500 h-full">
+                  <div className="p-6 sm:p-10 rounded-3xl premium-card text-center hover:border-primary/20 transition-all duration-500 h-full">
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${value.gradient} p-[1px] mx-auto mb-8`}
@@ -268,7 +268,7 @@ const About = () => {
                     </div>
                   </motion.div>
 
-                  <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 group-hover:text-primary transition-colors">
                     {value.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -282,26 +282,26 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-28">
-        <div className="container mx-auto px-6">
+      <section className="py-16 sm:py-28">
+        <div className="container mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-20"
+            className="text-center mb-12 sm:mb-20"
           >
             <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
               Our Team
             </span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 sm:mb-6">
               Meet the <span className="text-gradient italic">Creatives</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base px-4 sm:px-0">
               A team of 5+ talented artists, animators, and designers bringing imagination to life
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
             {team.map((member, index) => (
               <motion.div
                 key={member.name}
@@ -315,7 +315,7 @@ const About = () => {
                 }}
                 className="group"
               >
-                <div className="p-8 rounded-3xl premium-card text-center hover:border-primary/20 transition-all duration-500 h-full flex flex-col items-center justify-center">
+                  <div className="p-6 sm:p-8 rounded-3xl premium-card text-center hover:border-primary/20 transition-all duration-500 h-full flex flex-col items-center justify-center">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent p-[2px] mb-6"

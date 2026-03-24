@@ -66,7 +66,7 @@ export const StatsSection = () => {
               className="relative group"
             >
               {/* Card */}
-              <div className="text-center p-4 sm:p-8 rounded-3xl premium-card hover:border-primary/20 transition-all duration-500">
+              <div className="text-center p-4 sm:p-8 rounded-2xl sm:rounded-3xl premium-card hover:border-primary/20 transition-all duration-500 h-full">
                 {/* Hover glow */}
                 <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 glow-soft" />
 
@@ -86,12 +86,12 @@ export const StatsSection = () => {
                 </motion.div>
 
                 {/* Number */}
-                <div className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-gradient mb-2 sm:mb-4">
+                <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold text-gradient mb-2 sm:mb-4">
                   <Counter value={stat.value} suffix={stat.suffix} />
                 </div>
 
                 {/* Label */}
-                <p className="text-muted-foreground text-sm md:text-base font-medium">
+                <p className="text-muted-foreground text-xs sm:text-sm md:text-base font-medium leading-snug">
                   {stat.label}
                 </p>
               </div>

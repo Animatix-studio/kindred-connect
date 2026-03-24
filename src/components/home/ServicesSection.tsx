@@ -88,7 +88,7 @@ export const ServicesSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-12 sm:py-36 relative overflow-hidden">
+    <section className="py-16 sm:py-36 relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -100,7 +100,7 @@ export const ServicesSection = () => {
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] rounded-full blur-[200px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[680px] h-[420px] sm:w-[1000px] sm:h-[600px] rounded-full blur-[160px] sm:blur-[200px]"
           style={{
             background:
               "radial-gradient(ellipse, hsl(200 100% 50% / 0.15), transparent)",
@@ -125,7 +125,7 @@ export const ServicesSection = () => {
           >
             What We Do
           </motion.span>
-          <h2 className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-3 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-3 sm:mb-8 px-2">
             Imagination has no limits—
             <span className="text-gradient italic">why should your designs?</span>
           </h2>
@@ -141,16 +141,16 @@ export const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
         >
           {services.map((service) => (
             <motion.div
               key={service.title}
               variants={itemVariants}
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
-              className="group relative"
+              className="group relative h-full"
             >
-              <div className="relative p-4 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
+              <div className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
                 {/* Hover gradient overlay */}
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -185,7 +185,7 @@ export const ServicesSection = () => {
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     whileHover={{ x: 5 }}
-                    className="mt-6 flex items-center gap-2 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    className="mt-6 flex items-center gap-2 text-sm font-medium text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300"
                   >
                     Explore Service
                     <motion.span
