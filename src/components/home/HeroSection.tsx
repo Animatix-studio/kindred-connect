@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Play, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import heroBackground from "@/assets/hero-background.jpg";
+import { FullImageBackground } from "@/components/shared/FullImageBackground";
 
 export const HeroSection = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -26,15 +27,17 @@ export const HeroSection = () => {
         className="absolute inset-0 z-0"
         style={{ scale: bgScale }}
       >
-        <img 
-          src={heroBackground} 
-          alt="Cinematic animation studio hero background" 
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center center' }}
-        />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+        <FullImageBackground
+          src={heroBackground}
+          alt="Cinematic animation studio hero background"
+          backdropClassName="opacity-35 scale-110"
+          backdropStyle={{ backgroundPosition: "center 30%" }}
+          imageStyle={{ objectPosition: "center 30%" }}
+        >
+          <div className="absolute inset-0 bg-background/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/55" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+        </FullImageBackground>
       </motion.div>
 
       {/* Animated Overlay Effects */}

@@ -10,6 +10,7 @@ import {
   Clapperboard,
 } from "lucide-react";
 import ourVisionBg from "@/assets/our-vision-bg.jpg";
+import { FullImageBackground } from "@/components/shared/FullImageBackground";
 
 const services = [
   {
@@ -90,12 +91,11 @@ export const ServicesSection = () => {
   return (
     <section className="py-16 sm:py-36 relative overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0">
-        <img 
-          src={ourVisionBg} 
-          alt="Space background" 
-          className="w-full h-full object-cover"
-        />
+      <FullImageBackground
+        src={ourVisionBg}
+        alt="Space background"
+        backdropClassName="opacity-25 scale-110"
+      >
         <div className="absolute inset-0 bg-background/40" />
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
@@ -106,7 +106,7 @@ export const ServicesSection = () => {
               "radial-gradient(ellipse, hsl(200 100% 50% / 0.15), transparent)",
           }}
         />
-      </div>
+      </FullImageBackground>
 
       <div className="container mx-auto px-4 sm:px-6 relative">
         {/* Section Header */}
