@@ -10,7 +10,7 @@ import {
   Clapperboard,
 } from "lucide-react";
 import ourVisionBg from "@/assets/our-vision-bg.jpg";
-import { FullImageBackground } from "@/components/shared/FullImageBackground";
+
 
 const services = [
   {
@@ -90,13 +90,15 @@ export const ServicesSection = () => {
 
   return (
     <section className="py-16 sm:py-36 relative overflow-hidden">
-      {/* Background Image */}
-      <FullImageBackground
-        src={ourVisionBg}
-        alt="Space background"
-        backdropClassName="opacity-25 scale-110"
-      >
-        <div className="absolute inset-0 bg-background/40" />
+      {/* Background Image - single layer, no duplication */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <img
+          src={ourVisionBg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+        />
+        <div className="absolute inset-0 bg-background/50" />
         <motion.div
           animate={{ opacity: [0.3, 0.5, 0.3] }}
           transition={{ duration: 8, repeat: Infinity }}
@@ -106,7 +108,7 @@ export const ServicesSection = () => {
               "radial-gradient(ellipse, hsl(200 100% 50% / 0.15), transparent)",
           }}
         />
-      </FullImageBackground>
+      </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative">
         {/* Section Header */}
@@ -150,7 +152,7 @@ export const ServicesSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
               className="group relative h-full"
             >
-              <div className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/60 backdrop-blur-sm border border-white/10 hover:border-primary/30 transition-all duration-500 h-full">
+              <div className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
                 {/* Hover gradient overlay */}
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
