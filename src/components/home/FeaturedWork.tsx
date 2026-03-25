@@ -144,95 +144,23 @@ export const FeaturedWork = () => {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <div className="md:hidden px-4 pt-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="premium-card rounded-[1.75rem] overflow-hidden"
-        >
-          <div className="relative aspect-[4/5]">
-            <AnimatePresence mode="wait">
-              <motion.button
-                key={currentSlide}
-                type="button"
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0 text-left"
-                onClick={() => setSelectedProject(currentProject)}
-              >
-                <img
-                  src={currentProject.image}
-                  alt={currentProject.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className={`absolute inset-0 bg-gradient-to-t ${currentProject.gradient} to-transparent opacity-70`} />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent" />
-
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <span className="inline-flex px-3 py-1 rounded-full text-xs font-medium glass-strong mb-4">
-                    {currentProject.category}
-                  </span>
-                  <h3 className="text-2xl font-display font-bold mb-2 text-foreground">
-                    {currentProject.title}
-                  </h3>
-                  <p className="text-sm text-foreground/75 leading-relaxed mb-4 line-clamp-3">
-                    {currentProject.description}
-                  </p>
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="text-xs font-semibold tracking-[0.18em] uppercase text-primary">
-                      {currentProject.client} • {currentProject.year}
-                    </span>
-                    <span className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-background/25 backdrop-blur-md border border-border/40">
-                      <Play className="w-4 h-4 text-foreground ml-0.5" />
-                    </span>
-                  </div>
-                </div>
-              </motion.button>
-            </AnimatePresence>
-
-            <button
-              type="button"
-              onClick={prevSlide}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/60 backdrop-blur-md flex items-center justify-center border border-border/40 z-10"
-            >
-              <ChevronLeft className="text-foreground w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              onClick={nextSlide}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/60 backdrop-blur-md flex items-center justify-center border border-border/40 z-10"
-            >
-              <ChevronRight className="text-foreground w-4 h-4" />
-            </button>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Background Image with iPad - This IS the layout */}
-      <div className="relative w-full hidden md:block">
+      {/* Background Image with iPad - all screen sizes */}
+      <div className="relative w-full">
         <img
           src={portfolioBg}
           alt="Featured projects background"
           className="w-full h-auto"
         />
 
-        {/* iPad Screen Overlay - aligned to the inner screen area */}
+        {/* iPad Screen Overlay */}
         <div
           className="absolute overflow-hidden"
           style={{
-            // Pixel-fit to the iPad's WHITE screen area in portfolio-bg.jpg.
-            // NOTE: the screen is slightly perspective-skewed, so we use a clip-path to avoid
-            // either leaving white gaps or overlapping the bezel.
             top: "37.5%",
             left: "39.48%",
             width: "40.66%",
             height: "51.5%",
             borderRadius: "2px",
-            // Nudge the top edge inward a bit to prevent bezel overlap.
             clipPath: "polygon(2.2% 3.6%, 97.8% 4.8%, 97.1% 98.6%, 3.0% 97.2%)",
           }}
         >
@@ -258,17 +186,16 @@ export const FeaturedWork = () => {
                   alt={currentProject.title}
                   className="w-full h-full object-cover"
                 />
-                {/* Overlay */}
                 <div className={`absolute inset-0 bg-gradient-to-t ${currentProject.gradient} to-transparent opacity-60`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 
                 {/* Project Info on Screen */}
-                <div className="absolute bottom-2 left-2 right-2 sm:bottom-4 sm:left-4 sm:right-4 md:bottom-6 md:left-6 md:right-6">
+                <div className="absolute bottom-1 left-1 right-1 sm:bottom-4 sm:left-4 sm:right-4 md:bottom-6 md:left-6 md:right-6">
                   <motion.span
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="inline-block px-1.5 py-0.5 sm:px-2 md:px-3 md:py-1 rounded-full text-[8px] sm:text-[10px] md:text-xs font-medium bg-white/20 backdrop-blur-sm text-white mb-0.5 sm:mb-1 md:mb-2"
+                    className="hidden sm:inline-block px-1.5 py-0.5 sm:px-2 md:px-3 md:py-1 rounded-full text-[8px] sm:text-[10px] md:text-xs font-medium bg-white/20 backdrop-blur-sm text-white mb-0.5 sm:mb-1 md:mb-2"
                   >
                     {currentProject.category}
                   </motion.span>
@@ -276,7 +203,7 @@ export const FeaturedWork = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="text-white text-xs sm:text-base md:text-2xl lg:text-3xl font-display font-bold mb-0.5 md:mb-1"
+                    className="text-white text-[8px] leading-tight sm:text-base md:text-2xl lg:text-3xl font-display font-bold mb-0 md:mb-1"
                   >
                     {currentProject.title}
                   </motion.h3>
@@ -290,15 +217,15 @@ export const FeaturedWork = () => {
                   </motion.p>
                 </div>
 
-                {/* Click indicator - Play button */}
+                {/* Play button */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 }}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 >
-                  <div className="w-7 h-7 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors">
-                    <Play className="text-white ml-0.5 w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                  <div className="w-5 h-5 sm:w-10 sm:h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30 hover:bg-white/30 transition-colors">
+                    <Play className="text-white ml-0.5 w-2 h-2 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                   </div>
                 </motion.div>
               </motion.div>
@@ -307,15 +234,15 @@ export const FeaturedWork = () => {
             {/* Navigation Arrows */}
             <button
               onClick={(e) => { e.stopPropagation(); prevSlide(); }}
-              className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
+              className="absolute left-0.5 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
             >
-              <ChevronLeft className="text-white w-3 h-3 sm:w-4 sm:h-4" />
+              <ChevronLeft className="text-white w-2 h-2 sm:w-4 sm:h-4" />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); nextSlide(); }}
-              className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
+              className="absolute right-0.5 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-black/30 backdrop-blur-md flex items-center justify-center border border-white/20 hover:bg-black/50 transition-colors z-10"
             >
-              <ChevronRight className="text-white w-3 h-3 sm:w-4 sm:h-4" />
+              <ChevronRight className="text-white w-2 h-2 sm:w-4 sm:h-4" />
             </button>
           </motion.div>
         </div>
