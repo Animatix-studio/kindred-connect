@@ -96,7 +96,7 @@ export const ServicesSection = () => {
           src={ourVisionBg}
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+          className="absolute inset-0 w-full h-full object-contain sm:object-cover object-center opacity-40"
         />
         <div className="absolute inset-0 bg-background/50" />
         <motion.div
