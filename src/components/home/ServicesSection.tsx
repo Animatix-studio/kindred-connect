@@ -2,62 +2,61 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import {
-  Sparkles,
   Film,
+  Box,
+  Sparkles,
   Palette,
-  Layers,
-  Wand2,
-  Clapperboard,
+  PenTool,
+  Image,
 } from "lucide-react";
 import ourVisionBg from "@/assets/our-vision-bg.jpg";
-
 
 const services = [
   {
     icon: Film,
+    title: "2D Animation",
+    description:
+      "Captivating two-dimensional animations that bring stories and ideas to vivid life.",
+    gradient: "from-amber-500/20 to-orange-500/10",
+    iconGradient: "from-amber-500 to-orange-500",
+  },
+  {
+    icon: Box,
     title: "3D Animation",
     description:
       "Stunning three-dimensional worlds and characters that push creative boundaries.",
-    gradient: "from-amber-500/20 to-orange-500/10",
-    iconGradient: "from-amber-500 to-orange-500",
+    gradient: "from-purple-500/20 to-pink-500/10",
+    iconGradient: "from-purple-500 to-pink-500",
   },
   {
     icon: Sparkles,
     title: "Motion Graphics",
     description:
       "Dynamic visual storytelling for brands, titles, and promotional content.",
-    gradient: "from-purple-500/20 to-pink-500/10",
-    iconGradient: "from-purple-500 to-pink-500",
+    gradient: "from-cyan-500/20 to-blue-500/10",
+    iconGradient: "from-cyan-500 to-blue-500",
   },
   {
     icon: Palette,
     title: "Character Design",
     description:
       "Memorable characters with unique personalities that resonate with audiences.",
-    gradient: "from-cyan-500/20 to-blue-500/10",
-    iconGradient: "from-cyan-500 to-blue-500",
-  },
-  {
-    icon: Layers,
-    title: "Visual Effects",
-    description:
-      "Seamless VFX integration that enhances reality and creates impossible worlds.",
     gradient: "from-green-500/20 to-emerald-500/10",
     iconGradient: "from-green-500 to-emerald-500",
   },
   {
-    icon: Wand2,
-    title: "Concept Art",
+    icon: PenTool,
+    title: "Graphics Design",
     description:
-      "Imaginative concept development that sets the foundation for visual excellence.",
+      "Eye-catching visual designs for branding, marketing, and digital media.",
     gradient: "from-rose-500/20 to-red-500/10",
     iconGradient: "from-rose-500 to-red-500",
   },
   {
-    icon: Clapperboard,
-    title: "Commercial Production",
+    icon: Image,
+    title: "Digital Illustrations",
     description:
-      "End-to-end animated commercials that captivate and convert audiences.",
+      "Beautiful hand-crafted digital artwork that tells your story with artistry and precision.",
     gradient: "from-indigo-500/20 to-violet-500/10",
     iconGradient: "from-indigo-500 to-violet-500",
   },
@@ -143,7 +142,7 @@ export const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8"
+          className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5"
         >
           {services.map((service) => (
             <motion.div
@@ -152,7 +151,7 @@ export const ServicesSection = () => {
               whileHover={{ y: -10, transition: { duration: 0.4 } }}
               className="group relative h-full"
             >
-              <div className="relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
+              <div className="relative p-3 sm:p-6 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
                 {/* Hover gradient overlay */}
                 <div
                   className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -166,20 +165,20 @@ export const ServicesSection = () => {
                   <motion.div
                     whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
                     transition={{ duration: 0.5 }}
-                    className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.iconGradient} p-[1px] mb-4 sm:mb-7`}
+                    className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${service.iconGradient} p-[1px] mb-3 sm:mb-5`}
                   >
-                    <div className="w-full h-full rounded-xl sm:rounded-2xl bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
+                    <div className="w-full h-full rounded-lg sm:rounded-xl bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
                       <service.icon
-                        className={`w-5 h-5 sm:w-7 sm:h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300`}
+                        className={`w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300`}
                       />
                     </div>
                   </motion.div>
 
-                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-sm sm:text-base font-semibold mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
 
-                  <p className="text-muted-foreground leading-relaxed text-sm">
+                  <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm hidden sm:block">
                     {service.description}
                   </p>
 
@@ -187,7 +186,7 @@ export const ServicesSection = () => {
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     whileHover={{ x: 5 }}
-                    className="mt-6 flex items-center gap-2 text-sm font-medium text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300"
+                    className="mt-3 sm:mt-4 hidden sm:flex items-center gap-2 text-xs font-medium text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300"
                   >
                     Explore Service
                     <motion.span
