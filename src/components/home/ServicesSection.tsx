@@ -136,75 +136,27 @@ export const ServicesSection = () => {
           <div className="line-gradient w-24 mx-auto mt-8" />
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Split Left & Right */}
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 max-w-5xl mx-auto"
-          style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', columnGap: 'clamp(8rem, 30vw, 20rem)' }}
+          className="flex flex-row justify-between gap-2 sm:gap-0"
         >
-          {services.map((service) => (
-            <motion.div
-              key={service.title}
-              variants={itemVariants}
-              whileHover={{ y: -10, transition: { duration: 0.4 } }}
-              className="group relative h-full"
-            >
-              <div className="relative p-3 sm:p-6 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
-                {/* Hover gradient overlay */}
-                <div
-                  className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                />
+          {/* Left Column */}
+          <div className="flex flex-col gap-2 sm:gap-3 w-[30%] sm:w-[26%]">
+            {services.slice(0, 3).map((service) => (
+              <ServiceCard key={service.title} service={service} />
+            ))}
+          </div>
 
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 glow-soft" />
-
-                <div className="relative">
-                  {/* Icon */}
-                  <motion.div
-                    whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
-                    transition={{ duration: 0.5 }}
-                    className={`w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gradient-to-br ${service.iconGradient} p-[1px] mb-3 sm:mb-5`}
-                  >
-                    <div className="w-full h-full rounded-lg sm:rounded-xl bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
-                      <service.icon
-                        className={`w-4 h-4 sm:w-5 sm:h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300`}
-                      />
-                    </div>
-                  </motion.div>
-
-                  <h3 className="text-sm sm:text-base font-semibold mb-1 sm:mb-2 group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm hidden sm:block">
-                    {service.description}
-                  </p>
-
-                  {/* Learn more link */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    whileHover={{ x: 5 }}
-                    className="mt-3 sm:mt-4 hidden sm:flex items-center gap-2 text-xs font-medium text-primary opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300"
-                  >
-                    Explore Service
-                    <motion.span
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      →
-                    </motion.span>
-                  </motion.div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Right Column */}
+          <div className="flex flex-col gap-2 sm:gap-3 w-[30%] sm:w-[26%]">
+            {services.slice(3, 6).map((service) => (
+              <ServiceCard key={service.title} service={service} />
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
