@@ -142,7 +142,8 @@ export const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5"
+          className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 max-w-5xl mx-auto"
+          style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', columnGap: 'clamp(8rem, 30vw, 20rem)' }}
         >
           {services.map((service) => (
             <motion.div
