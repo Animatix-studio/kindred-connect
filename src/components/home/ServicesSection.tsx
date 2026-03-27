@@ -83,7 +83,37 @@ const itemVariants = {
   },
 };
 
-export const ServicesSection = () => {
+const ServiceCard = ({ service }: { service: typeof services[number] }) => (
+  <motion.div
+    variants={itemVariants}
+    whileHover={{ y: -5, transition: { duration: 0.3 } }}
+    className="group relative"
+  >
+    <div className="relative p-2.5 sm:p-4 rounded-lg sm:rounded-xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500">
+      <div className={`absolute inset-0 rounded-lg sm:rounded-xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+      <div className="absolute inset-0 rounded-lg sm:rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 glow-soft" />
+      <div className="relative">
+        <motion.div
+          whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+          transition={{ duration: 0.5 }}
+          className={`w-7 h-7 sm:w-10 sm:h-10 rounded-md sm:rounded-lg bg-gradient-to-br ${service.iconGradient} p-[1px] mb-2 sm:mb-3`}
+        >
+          <div className="w-full h-full rounded-md sm:rounded-lg bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
+            <service.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+          </div>
+        </motion.div>
+        <h3 className="text-xs sm:text-sm font-semibold mb-0.5 sm:mb-1 group-hover:text-primary transition-colors duration-300">
+          {service.title}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed text-[10px] sm:text-xs hidden sm:block">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  </motion.div>
+);
+
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
