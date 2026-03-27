@@ -9,6 +9,7 @@ import {
   PenTool,
   Image,
 } from "lucide-react";
+import ourVisionBg from "@/assets/our-vision-bg.jpg";
 
 const services = [
   {
