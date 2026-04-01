@@ -56,9 +56,6 @@ export const StatsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-14"
         >
-          <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">
-            By The Numbers
-          </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold">
             Our <span className="text-gradient">Impact</span>
           </h2>
