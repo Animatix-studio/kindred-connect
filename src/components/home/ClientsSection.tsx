@@ -1,14 +1,10 @@
 import { motion } from "framer-motion";
 
 const clients = [
-  { name: "Netflix", gradient: "from-red-500 to-red-600" },
-  { name: "Disney", gradient: "from-blue-500 to-indigo-600" },
-  { name: "Apple", gradient: "from-gray-400 to-gray-600" },
-  { name: "Nike", gradient: "from-orange-500 to-red-500" },
-  { name: "Sony", gradient: "from-blue-600 to-purple-600" },
-  { name: "Warner Bros", gradient: "from-yellow-500 to-amber-600" },
-  { name: "Amazon", gradient: "from-orange-400 to-yellow-500" },
-  { name: "Google", gradient: "from-green-500 to-blue-500" },
+  { name: "Tata Motors", gradient: "from-blue-500 to-indigo-600" },
+  { name: "Purple Fest", gradient: "from-purple-500 to-pink-600" },
+  { name: "SEMICON India", gradient: "from-green-500 to-teal-600" },
+  { name: "Government of Delhi", gradient: "from-orange-500 to-amber-600" },
 ];
 
 export const ClientsSection = () => {
