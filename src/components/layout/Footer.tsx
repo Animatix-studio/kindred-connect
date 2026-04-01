@@ -23,7 +23,6 @@ const footerLinks = [
       { name: "About Us", path: "/about" },
       { name: "Portfolio", path: "/portfolio" },
       { name: "Careers", path: "#" },
-      { name: "Press", path: "#" },
     ],
   },
   {
@@ -40,7 +39,6 @@ const footerLinks = [
     links: [
       { name: "Blog", path: "#" },
       { name: "Case Studies", path: "#" },
-      { name: "FAQs", path: "#" },
       { name: "Contact", path: "/contact" },
     ],
   },
