@@ -36,28 +36,6 @@ const values = [
   },
 ];
 
-const team = [
-  {
-    name: "Creative Director",
-    role: "2D & 3D Animation Lead",
-    icon: Film,
-  },
-  {
-    name: "Art Director",
-    role: "Character & Environment Design",
-    icon: Palette,
-  },
-  {
-    name: "Technical Director",
-    role: "3D Modeling & Rendering",
-    icon: Lightbulb,
-  },
-  {
-    name: "Project Manager",
-    role: "Client Relations & Delivery",
-    icon: Users,
-  },
-];
 
 const About = () => {
   const containerRef = useRef<HTMLElement>(null);
