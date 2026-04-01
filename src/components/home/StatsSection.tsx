@@ -50,6 +50,19 @@ export const StatsSection = () => {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-8 sm:mb-14"
+        >
+          <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-3 block">
+            By The Numbers
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold">
+            Our <span className="text-gradient">Impact</span>
+          </h2>
+        </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto">
           {stats.map((stat, index) => (
             <motion.div

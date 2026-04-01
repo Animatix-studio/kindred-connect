@@ -36,28 +36,6 @@ const values = [
   },
 ];
 
-const team = [
-  {
-    name: "Creative Director",
-    role: "2D & 3D Animation Lead",
-    icon: Film,
-  },
-  {
-    name: "Art Director",
-    role: "Character & Environment Design",
-    icon: Palette,
-  },
-  {
-    name: "Technical Director",
-    role: "3D Modeling & Rendering",
-    icon: Lightbulb,
-  },
-  {
-    name: "Project Manager",
-    role: "Client Relations & Delivery",
-    icon: Users,
-  },
-];
 
 const About = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -281,59 +259,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-16 sm:py-28">
-        <div className="container mx-auto px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-20"
-          >
-            <span className="text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-4 block">
-              Our Team
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 sm:mb-6">
-              Meet the <span className="text-gradient italic">Creatives</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base px-4 sm:px-0">
-              A team of 5+ talented artists, animators, and designers bringing imagination to life
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
-            {team.map((member, index) => (
-              <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: index * 0.1,
-                  duration: 0.7,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="group"
-              >
-                  <div className="p-6 sm:p-8 rounded-3xl premium-card text-center hover:border-primary/20 transition-all duration-500 h-full flex flex-col items-center justify-center">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent p-[2px] mb-6"
-                  >
-                    <div className="w-full h-full rounded-full bg-card flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
-                      <member.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
-                    </div>
-                  </motion.div>
-                  <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
-                    {member.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mt-1">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </main>
