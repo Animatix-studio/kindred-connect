@@ -41,49 +41,24 @@ export const ClientsSection = () => {
         <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-48 bg-gradient-to-r from-background via-background/80 to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-48 bg-gradient-to-l from-background via-background/80 to-transparent z-10" />
 
-        {/* First row - left to right */}
+        {/* Single row - left to right */}
         <motion.div
           animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration: 30,
+            duration: 20,
             repeat: Infinity,
             ease: "linear",
           }}
-          className="flex gap-8 sm:gap-20 mb-6 sm:mb-12"
+          className="flex gap-8 sm:gap-20"
         >
-          {[...clients, ...clients].map((client, index) => (
+          {[...clients, ...clients, ...clients, ...clients].map((client, index) => (
             <motion.div
               key={`row1-${client.name}-${index}`}
               whileHover={{ scale: 1.1, y: -5 }}
               className="group cursor-pointer flex-shrink-0"
             >
               <span
-                 className={`text-xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/20 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
-              >
-                {client.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Second row - right to left */}
-        <motion.div
-          animate={{ x: ["-50%", "0%"] }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="flex gap-8 sm:gap-20"
-        >
-          {[...[...clients].reverse(), ...clients].map((client, index) => (
-            <motion.div
-              key={`row2-${client.name}-${index}`}
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="group cursor-pointer flex-shrink-0"
-            >
-              <span
-                 className={`text-xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/15 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500`}
+                className={`text-xl sm:text-4xl md:text-5xl font-display font-bold text-muted-foreground/20 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${client.gradient} transition-all duration-500 whitespace-nowrap`}
               >
                 {client.name}
               </span>
