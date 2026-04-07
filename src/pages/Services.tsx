@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Wand2,
   Film,
@@ -9,6 +11,9 @@ import {
   PenTool,
   Users,
   Heart,
+  Mail,
+  Phone,
+  ArrowRight,
 } from "lucide-react";
 
 const services = [
