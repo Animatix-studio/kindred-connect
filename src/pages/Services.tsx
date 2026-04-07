@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Wand2,
@@ -14,6 +14,7 @@ import {
   Mail,
   Phone,
   ArrowRight,
+  Check,
 } from "lucide-react";
 
 const services = [
@@ -86,7 +87,15 @@ const itemVariants = {
   },
 };
 
+const packages = [
+  { id: "basic", label: "Basic Package", subtitle: "Package 1" },
+  { id: "intermediate", label: "Intermediate Package", subtitle: "Package 2" },
+  { id: "premium", label: "Premium Package", subtitle: "Package 3" },
+];
+
 const Services = () => {
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -200,41 +209,33 @@ const Services = () => {
           >
             {/* Basic Package */}
             <motion.div variants={itemVariants} className="group relative">
-              <div className="relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
+              <div
+                onClick={() => setSelectedPackage(selectedPackage === "basic" ? null : "basic")}
+                className={`relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border cursor-pointer transition-all duration-500 h-full ${
+                  selectedPackage === "basic" ? "border-primary ring-2 ring-primary/20" : "border-white/[0.08] hover:border-primary/30"
+                }`}
+              >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <span className="inline-block text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Package 1</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="inline-block text-xs font-semibold tracking-widest uppercase text-muted-foreground">Package 1</span>
+                    {selectedPackage === "basic" && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="w-6 h-6 rounded-full bg-primary flex items-center justify-center"
+                      >
+                        <Check className="w-4 h-4 text-primary-foreground" />
+                      </motion.div>
+                    )}
+                  </div>
                   <h3 className="text-xl sm:text-2xl font-display font-bold mb-2 text-primary">Basic Package</h3>
                   <p className="text-muted-foreground text-sm mb-6">Perfect for beginners wanting to understand the core mechanics of motion.</p>
                   <ul className="space-y-4">
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Introduction to the Animation Process</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Understanding the workflow from start to finish.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">The History & Art of Animation</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">A deep dive into what makes animation unique.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Mechanics of Motion</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Understanding how animation actually works (frames, timing, and spacing).</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">The Basics</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Fundamental exercises to get you comfortable with the software and tools.</p>
-                      </div>
-                    </li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Introduction to the Animation Process</span><p className="text-muted-foreground text-xs mt-0.5">Understanding the workflow from start to finish.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">The History & Art of Animation</span><p className="text-muted-foreground text-xs mt-0.5">A deep dive into what makes animation unique.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Mechanics of Motion</span><p className="text-muted-foreground text-xs mt-0.5">Understanding how animation actually works (frames, timing, and spacing).</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">The Basics</span><p className="text-muted-foreground text-xs mt-0.5">Fundamental exercises to get you comfortable with the software and tools.</p></div></li>
                   </ul>
                 </div>
               </div>
@@ -242,41 +243,33 @@ const Services = () => {
 
             {/* Intermediate Package */}
             <motion.div variants={itemVariants} className="group relative">
-              <div className="relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-primary/20 hover:border-primary/40 transition-all duration-500 h-full ring-1 ring-primary/10">
+              <div
+                onClick={() => setSelectedPackage(selectedPackage === "intermediate" ? null : "intermediate")}
+                className={`relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border cursor-pointer transition-all duration-500 h-full ${
+                  selectedPackage === "intermediate" ? "border-primary ring-2 ring-primary/20" : "border-primary/20 hover:border-primary/40 ring-1 ring-primary/10"
+                }`}
+              >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">Package 2</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary">Package 2</span>
+                    {selectedPackage === "intermediate" && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="w-6 h-6 rounded-full bg-primary flex items-center justify-center"
+                      >
+                        <Check className="w-4 h-4 text-primary-foreground" />
+                      </motion.div>
+                    )}
+                  </div>
                   <h3 className="text-xl sm:text-2xl font-display font-bold mb-2 text-primary">Intermediate Package</h3>
                   <p className="text-muted-foreground text-sm mb-6">Designed for those ready to move beyond the basics and create complete scenes.</p>
                   <ul className="space-y-4">
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Core Fundamentals</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Re-establishing how animation works at a professional level.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Basic to Advanced Practice</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Mastery of the 12 principles of animation.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Scene Compilation</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Learning how to take small animation clips and compile them into a finished sequence.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Character Development</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Introduction to character design, personality, and expressive movement.</p>
-                      </div>
-                    </li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Core Fundamentals</span><p className="text-muted-foreground text-xs mt-0.5">Re-establishing how animation works at a professional level.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Basic to Advanced Practice</span><p className="text-muted-foreground text-xs mt-0.5">Mastery of the 12 principles of animation.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Scene Compilation</span><p className="text-muted-foreground text-xs mt-0.5">Learning how to take small animation clips and compile them into a finished sequence.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Character Development</span><p className="text-muted-foreground text-xs mt-0.5">Introduction to character design, personality, and expressive movement.</p></div></li>
                   </ul>
                 </div>
               </div>
@@ -284,54 +277,96 @@ const Services = () => {
 
             {/* Premium Package */}
             <motion.div variants={itemVariants} className="group relative">
-              <div className="relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
+              <div
+                onClick={() => setSelectedPackage(selectedPackage === "premium" ? null : "premium")}
+                className={`relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border cursor-pointer transition-all duration-500 h-full ${
+                  selectedPackage === "premium" ? "border-primary ring-2 ring-primary/20" : "border-white/[0.08] hover:border-primary/30"
+                }`}
+              >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative">
-                  <span className="inline-block text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Package 3</span>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="inline-block text-xs font-semibold tracking-widest uppercase text-muted-foreground">Package 3</span>
+                    {selectedPackage === "premium" && (
+                      <motion.div
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        className="w-6 h-6 rounded-full bg-primary flex items-center justify-center"
+                      >
+                        <Check className="w-4 h-4 text-primary-foreground" />
+                      </motion.div>
+                    )}
+                  </div>
                   <h3 className="text-xl sm:text-2xl font-display font-bold mb-2 text-primary">Premium Package</h3>
                   <p className="text-muted-foreground text-sm mb-1 italic text-xs">Drawing + Animation</p>
                   <p className="text-muted-foreground text-sm mb-6">The complete "Studio Ready" package covering everything from a blank page to a finished film.</p>
                   <ul className="space-y-4">
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Mastering the Pencil</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Basics of drawing, anatomy, and perspective for animators.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Advanced Animation Practice</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">High-level motion studies and fluid movements.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Character Development</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Advanced design, rigging concepts, and character consistency.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Background Development</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Creating immersive worlds, layout design, and environmental storytelling.</p>
-                      </div>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <div>
-                        <span className="font-semibold text-sm text-foreground">Final Compilation</span>
-                        <p className="text-muted-foreground text-xs mt-0.5">Bringing characters and backgrounds together for a polished portfolio piece.</p>
-                      </div>
-                    </li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Mastering the Pencil</span><p className="text-muted-foreground text-xs mt-0.5">Basics of drawing, anatomy, and perspective for animators.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Advanced Animation Practice</span><p className="text-muted-foreground text-xs mt-0.5">High-level motion studies and fluid movements.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Character Development</span><p className="text-muted-foreground text-xs mt-0.5">Advanced design, rigging concepts, and character consistency.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Background Development</span><p className="text-muted-foreground text-xs mt-0.5">Creating immersive worlds, layout design, and environmental storytelling.</p></div></li>
+                    <li className="flex gap-3"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" /><div><span className="font-semibold text-sm text-foreground">Final Compilation</span><p className="text-muted-foreground text-xs mt-0.5">Bringing characters and backgrounds together for a polished portfolio piece.</p></div></li>
                   </ul>
                 </div>
               </div>
             </motion.div>
           </motion.div>
+
+          {/* Contact CTA - appears when a package is selected */}
+          <AnimatePresence>
+            {selectedPackage && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-10 sm:mt-14 max-w-2xl mx-auto"
+              >
+                <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20 text-center">
+                  <h3 className="text-lg sm:text-xl font-display font-bold mb-2">
+                    Interested in the{" "}
+                    <span className="text-primary">
+                      {packages.find((p) => p.id === selectedPackage)?.label}
+                    </span>
+                    ?
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-6">
+                    Get in touch with us to learn more and enroll in this program.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                    <motion.a
+                      href="mailto:animatixanimation@gmail.com?subject=Enquiry%20about%202D%20Animation%20-%20{{package}}"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full text-sm w-full sm:w-auto justify-center"
+                      onClick={(e) => {
+                        e.currentTarget.href = `mailto:animatixanimation@gmail.com?subject=Enquiry about 2D Animation - ${packages.find((p) => p.id === selectedPackage)?.label}`;
+                      }}
+                    >
+                      <Mail className="w-4 h-4" />
+                      Email Us
+                    </motion.a>
+                    <motion.a
+                      href="tel:+918828293396"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-primary/30 hover:border-primary/60 rounded-full text-sm font-medium text-foreground w-full sm:w-auto justify-center transition-colors"
+                    >
+                      <Phone className="w-4 h-4" />
+                      +91 8828293396
+                    </motion.a>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                    >
+                      Or visit Contact page
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
