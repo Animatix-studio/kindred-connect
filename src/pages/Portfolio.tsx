@@ -1,77 +1,59 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ArrowUpRight, Play } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowUpRight, Play, X } from "lucide-react";
+import { useState } from "react";
+
+import pureWaterImg from "@/assets/portfolio/pure-water.jpg";
+import kitchenInteriorImg from "@/assets/portfolio/kitchen-interior.jpg";
+import officeInteriorImg from "@/assets/portfolio/office-interior.jpg";
+import delhiVibhansabhaImg from "@/assets/portfolio/delhi-vibhansabha.jpg";
+import semiconIndiaImg from "@/assets/portfolio/semicon-india.jpg";
 
 const projects = [
   {
     id: 1,
-    title: "Ethereal Dreams",
-    category: "Feature Films",
-    image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
-    gradient: "from-purple-600/40 via-purple-600/20",
+    title: "Journey of Pure Water To Bottled",
+    category: "3D Animation & Modelling",
+    image: pureWaterImg,
+    video: "/videos/pure-water.mp4",
+    gradient: "from-blue-600/40 via-blue-600/20",
   },
   {
     id: 2,
-    title: "Neon Horizons",
-    category: "Commercials",
-    image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop",
-    gradient: "from-cyan-500/40 via-cyan-500/20",
+    title: "Kitchen Interior Design & Walk Through",
+    category: "3D Visualization",
+    image: kitchenInteriorImg,
+    gradient: "from-amber-500/40 via-amber-500/20",
   },
   {
     id: 3,
-    title: "Wild Spirits",
-    category: "Series",
-    image:
-      "https://images.unsplash.com/photo-1614729939124-032d1e6c9945?w=800&h=600&fit=crop",
-    gradient: "from-orange-500/40 via-orange-500/20",
+    title: "Office Interior Design & Walk Through",
+    category: "3D Visualization",
+    image: officeInteriorImg,
+    gradient: "from-purple-500/40 via-purple-500/20",
   },
   {
     id: 4,
-    title: "Digital Genesis",
-    category: "Motion Graphics",
-    image:
-      "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=600&fit=crop",
-    gradient: "from-pink-500/40 via-pink-500/20",
+    title: "Delhi Vibhansabha",
+    category: "Motion Graphics & 3D Animation",
+    image: delhiVibhansabhaImg,
+    video: "/videos/delhi-vibhansabha.mp4",
+    gradient: "from-orange-500/40 via-orange-500/20",
   },
   {
     id: 5,
-    title: "Ocean's Memory",
-    category: "Feature Films",
-    image:
-      "https://images.unsplash.com/photo-1551244072-5d12893278ab?w=800&h=600&fit=crop",
-    gradient: "from-blue-500/40 via-blue-500/20",
-  },
-  {
-    id: 6,
-    title: "Velocity",
-    category: "Commercials",
-    image:
-      "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop",
-    gradient: "from-green-500/40 via-green-500/20",
-  },
-  {
-    id: 7,
-    title: "Starfall",
-    category: "Feature Films",
-    image:
-      "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=800&h=600&fit=crop",
-    gradient: "from-indigo-500/40 via-indigo-500/20",
-  },
-  {
-    id: 8,
-    title: "Urban Pulse",
-    category: "Motion Graphics",
-    image:
-      "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&h=600&fit=crop",
-    gradient: "from-red-500/40 via-red-500/20",
+    title: "Semicon India 2025-07 Video Edits",
+    category: "Video Edits",
+    image: semiconIndiaImg,
+    video: "/videos/semicon-india.mp4",
+    gradient: "from-cyan-500/40 via-cyan-500/20",
   },
 ];
 
 const Portfolio = () => {
+  const [activeProject, setActiveProject] = useState<typeof projects[0] | null>(null);
+
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
@@ -133,9 +115,11 @@ const Portfolio = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                <div className="group cursor-pointer">
+                <div
+                  className="group cursor-pointer"
+                  onClick={() => setActiveProject(project)}
+                >
                   <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden">
-                    {/* Image */}
                     <motion.img
                       src={project.image}
                       alt={project.title}
@@ -144,22 +128,18 @@ const Portfolio = () => {
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     />
 
-                    {/* Gradient overlays */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-t ${project.gradient} to-transparent opacity-70`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent opacity-80" />
 
-                    {/* Shine effect */}
                     <motion.div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{
                         background:
                           "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%)",
                       }}
-                      animate={{
-                        x: ["-100%", "100%"],
-                      }}
+                      animate={{ x: ["-100%", "100%"] }}
                       transition={{
                         duration: 1.5,
                         repeat: Infinity,
@@ -167,14 +147,11 @@ const Portfolio = () => {
                       }}
                     />
 
-                    {/* Content */}
                     <div className="absolute inset-0 p-5 sm:p-8 flex flex-col justify-between">
-                      {/* Top - Category */}
                       <span className="self-start px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-medium glass-strong">
                         {project.category}
                       </span>
 
-                      {/* Bottom - Title */}
                       <div>
                         <span className="text-primary text-xs sm:text-sm font-medium mb-1 sm:mb-2 block opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                           View Project
@@ -185,20 +162,17 @@ const Portfolio = () => {
                       </div>
                     </div>
 
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-2xl"
-                      >
-                        <Play
-                          className="text-primary-foreground ml-1"
-                          size={20}
-                        />
-                      </motion.div>
-                    </div>
+                    {project.video && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          className="w-14 h-14 sm:w-20 sm:h-20 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-2xl"
+                        >
+                          <Play className="text-primary-foreground ml-1" size={20} />
+                        </motion.div>
+                      </div>
+                    )}
 
-                    {/* Arrow */}
                     <div className="hidden sm:block absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="w-12 h-12 rounded-full bg-foreground/10 backdrop-blur-md flex items-center justify-center border border-foreground/10">
                         <ArrowUpRight className="text-foreground" size={20} />
@@ -211,6 +185,56 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+            onClick={() => setActiveProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-4xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setActiveProject(null)}
+                className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors"
+              >
+                <X size={28} />
+              </button>
+
+              {activeProject.video ? (
+                <video
+                  src={activeProject.video}
+                  controls
+                  autoPlay
+                  className="w-full rounded-2xl"
+                />
+              ) : (
+                <img
+                  src={activeProject.image}
+                  alt={activeProject.title}
+                  className="w-full rounded-2xl object-contain max-h-[80vh]"
+                />
+              )}
+
+              <div className="mt-4 text-center">
+                <span className="text-primary text-sm font-medium">{activeProject.category}</span>
+                <h3 className="text-xl sm:text-2xl font-display font-bold text-white mt-1">
+                  {activeProject.title}
+                </h3>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </main>
