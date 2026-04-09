@@ -9,6 +9,9 @@ import kitchenInteriorImg from "@/assets/portfolio/kitchen-interior.jpg";
 import officeInteriorImg from "@/assets/portfolio/office-interior.jpg";
 import delhiVibhansabhaImg from "@/assets/portfolio/delhi-vibhansabha.jpg";
 import semiconIndiaImg from "@/assets/portfolio/semicon-india.jpg";
+import project6Img from "@/assets/portfolio/project-6.jpg";
+import project7Img from "@/assets/portfolio/project-7.jpg";
+import project8Img from "@/assets/portfolio/project-8.jpg";
 
 const projects = [
   {
@@ -48,6 +51,30 @@ const projects = [
     image: semiconIndiaImg,
     video: "/videos/semicon-india.mp4",
     gradient: "from-cyan-500/40 via-cyan-500/20",
+  },
+  {
+    id: 6,
+    title: "Creative Motion Project",
+    category: "Motion Graphics",
+    image: project6Img,
+    video: "/videos/project-6.mp4",
+    gradient: "from-rose-500/40 via-rose-500/20",
+  },
+  {
+    id: 7,
+    title: "Visual Storytelling Reel",
+    category: "Video Production",
+    image: project7Img,
+    video: "/videos/project-7.mp4",
+    gradient: "from-emerald-500/40 via-emerald-500/20",
+  },
+  {
+    id: 8,
+    title: "Dynamic Animation Showcase",
+    category: "2D Animation",
+    image: project8Img,
+    video: "/videos/project-8.mp4",
+    gradient: "from-indigo-500/40 via-indigo-500/20",
   },
 ];
 
