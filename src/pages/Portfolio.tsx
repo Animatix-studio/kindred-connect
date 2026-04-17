@@ -110,6 +110,16 @@ const Portfolio = () => {
                 }}
               >
                 <div className="group cursor-pointer">
+                  {/* Title above the card */}
+                  <div className="mb-3 sm:mb-4 flex items-end justify-between gap-3 px-1">
+                    <h3 className="text-lg sm:text-2xl md:text-3xl font-display font-bold leading-tight group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <span className="shrink-0 text-[10px] sm:text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground">
+                      {project.category}
+                    </span>
+                  </div>
+
                   <div className="relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border border-border/40 shadow-xl">
                     {/* Image */}
                     <motion.img
