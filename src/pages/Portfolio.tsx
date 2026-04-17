@@ -110,6 +110,16 @@ const Portfolio = () => {
                 }}
               >
                 <div className="group cursor-pointer">
+                  {/* Title above the card */}
+                  <div className="mb-3 sm:mb-4 flex items-end justify-between gap-3 px-1">
+                    <h3 className="text-lg sm:text-2xl md:text-3xl font-display font-bold leading-tight group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <span className="shrink-0 text-[10px] sm:text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground">
+                      {project.category}
+                    </span>
+                  </div>
+
                   <div className="relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border border-border/40 shadow-xl">
                     {/* Image */}
                     <motion.img
@@ -141,20 +151,11 @@ const Portfolio = () => {
                       }}
                     />
 
-                    {/* Content */}
-                    <div className="absolute inset-0 p-5 sm:p-8 flex flex-col justify-between">
-                      <span className="self-start px-3 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-medium glass-strong">
-                        {project.category}
+                    {/* Hover hint */}
+                    <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-primary text-xs sm:text-sm font-medium">
+                        View Project →
                       </span>
-
-                      <div>
-                        <span className="text-primary text-xs sm:text-sm font-medium mb-1 sm:mb-2 block opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                          View Project
-                        </span>
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold group-hover:text-primary transition-colors duration-300">
-                          {project.title}
-                        </h3>
-                      </div>
                     </div>
 
                     {/* Play button */}
