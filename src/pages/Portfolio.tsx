@@ -12,38 +12,38 @@ import waterImg from "@/assets/portfolio/pure-water.jpg";
 const projects = [
   {
     id: 1,
-    title: "Semicon India 2025",
-    category: "Video Edits",
-    image: semiconImg,
-    gradient: "from-cyan-500/40 via-cyan-500/20",
-  },
-  {
-    id: 2,
     title: "Delhi Vidhansabha",
     category: "Motion Graphics & 3D Animation",
     image: delhiImg,
     gradient: "from-amber-500/40 via-amber-500/20",
   },
   {
+    id: 2,
+    title: "Journey of Pure Water To Bottled",
+    category: "3D Animation & Modelling",
+    image: waterImg,
+    gradient: "from-blue-500/40 via-blue-500/20",
+  },
+  {
     id: 3,
+    title: "Semicon India 2025",
+    category: "Video Edits",
+    image: semiconImg,
+    gradient: "from-cyan-500/40 via-cyan-500/20",
+  },
+  {
+    id: 4,
     title: "Office Interior Walkthrough",
     category: "Visualization",
     image: officeImg,
     gradient: "from-purple-500/40 via-purple-500/20",
   },
   {
-    id: 4,
+    id: 5,
     title: "Kitchen Interior Walkthrough",
     category: "Visualization",
     image: kitchenImg,
     gradient: "from-emerald-500/40 via-emerald-500/20",
-  },
-  {
-    id: 5,
-    title: "Journey of Pure Water To Bottled",
-    category: "3D Animation & Modelling",
-    image: waterImg,
-    gradient: "from-blue-500/40 via-blue-500/20",
   },
 ];
 

@@ -3,6 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import portfolioBg from "@/assets/portfolio-bg.jpg";
+import delhiImg from "@/assets/portfolio/delhi-vidhansabha.jpg";
+import waterImg from "@/assets/portfolio/pure-water.jpg";
+import semiconImg from "@/assets/portfolio/semicon-india.jpg";
+import officeImg from "@/assets/portfolio/office-interior.jpg";
+import kitchenImg from "@/assets/portfolio/kitchen-interior.jpg";
 import {
   Dialog,
   DialogContent,
@@ -14,96 +19,78 @@ import {
 const projects = [
   {
     id: 1,
-    title: "Ethereal Dreams",
-    category: "Feature Films",
+    title: "Delhi Vidhansabha",
+    category: "Motion Graphics & 3D Animation",
     year: "2024",
-    client: "Netflix",
-    image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=600&fit=crop",
+    client: "Delhi Vidhansabha",
+    image: delhiImg,
     description:
-      "An award-winning animated feature exploring the boundaries between reality and imagination.",
+      "A cinematic motion graphics and 3D animation piece tracing key moments in Indian legislative history.",
     fullDescription:
-      "Ethereal Dreams is a groundbreaking animated feature that takes viewers on an unforgettable journey through the subconscious mind. Working closely with Netflix, we crafted stunning visuals that blur the line between dreams and reality, earning critical acclaim and multiple animation awards.",
-    services: ["Character Design", "3D Animation", "Visual Effects", "Sound Design"],
-    duration: "2h 15min",
-    gradient: "from-purple-600/50 via-purple-600/20",
+      "A cinematic motion graphics and 3D animation piece tracing key moments in Indian legislative history, blending archival aesthetics with modern 3D craft.",
+    services: ["Motion Graphics", "3D Animation", "Compositing", "Sound Design"],
+    duration: "Short Film",
+    gradient: "from-amber-500/50 via-amber-500/20",
   },
   {
     id: 2,
-    title: "Neon Horizons",
-    category: "Commercials",
+    title: "Journey of Pure Water To Bottled",
+    category: "3D Animation & Modelling",
     year: "2024",
-    client: "Nike",
-    image:
-      "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=600&fit=crop",
+    client: "Industrial Client",
+    image: waterImg,
     description:
-      "A vibrant commercial campaign showcasing the future of athletic wear.",
+      "A detailed 3D walkthrough of an industrial water purification and bottling process.",
     fullDescription:
-      "For Nike's latest campaign, we created a futuristic vision of sports and athleticism. Using cutting-edge motion graphics and neon-infused color palettes, we brought their new product line to life in a way that resonated with a global audience.",
-    services: ["Motion Graphics", "3D Modeling", "Color Grading", "Compositing"],
-    duration: "60 seconds",
-    gradient: "from-cyan-500/50 via-cyan-500/20",
-  },
-  {
-    id: 3,
-    title: "Wild Spirits",
-    category: "Series",
-    year: "2023",
-    client: "Disney+",
-    image:
-      "https://images.unsplash.com/photo-1614729939124-032d1e6c9945?w=800&h=600&fit=crop",
-    description:
-      "An animated series following magical creatures in an enchanted forest.",
-    fullDescription:
-      "Wild Spirits is a captivating animated series that follows a group of magical creatures navigating life in an ancient, enchanted forest. Created for Disney+, this project showcases our ability to create rich, immersive worlds filled with memorable characters.",
-    services: ["World Building", "Character Animation", "Background Art", "Storyboarding"],
-    duration: "12 Episodes",
-    gradient: "from-orange-500/50 via-orange-500/20",
-  },
-  {
-    id: 4,
-    title: "Digital Genesis",
-    category: "Motion Graphics",
-    year: "2024",
-    client: "Apple",
-    image:
-      "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=600&fit=crop",
-    description: "Motion graphics for Apple's latest product launch event.",
-    fullDescription:
-      "Digital Genesis represented Apple's vision for their annual product launch. We designed and animated a series of motion graphics that elegantly showcased their new technology, blending minimalist aesthetics with dynamic visual storytelling.",
-    services: ["Motion Design", "3D Animation", "Typography", "Brand Integration"],
-    duration: "45 seconds",
-    gradient: "from-pink-500/50 via-pink-500/20",
-  },
-  {
-    id: 5,
-    title: "Ocean's Memory",
-    category: "Feature Films",
-    year: "2023",
-    client: "Warner Bros",
-    image:
-      "https://images.unsplash.com/photo-1551244072-5d12893278ab?w=800&h=600&fit=crop",
-    description: "An underwater adventure that captured hearts worldwide.",
-    fullDescription:
-      "Ocean's Memory is an emotional animated feature that tells the story of deep-sea creatures and their forgotten histories. Partnering with Warner Bros, we created breathtaking underwater environments and characters that audiences fell in love with globally.",
-    services: ["Underwater FX", "Character Design", "Lighting", "Score Integration"],
-    duration: "1h 52min",
+      "A detailed 3D animation and modelling project visualising the full journey of water — from raw input through filtration, purification and bottling — built for clear technical storytelling.",
+    services: ["3D Modelling", "3D Animation", "Lighting", "Rendering"],
+    duration: "Explainer",
     gradient: "from-blue-500/50 via-blue-500/20",
   },
   {
-    id: 6,
-    title: "Velocity",
-    category: "Commercials",
-    year: "2024",
-    client: "Tesla",
-    image:
-      "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=800&h=600&fit=crop",
-    description: "A high-energy commercial celebrating speed and innovation.",
+    id: 3,
+    title: "Semicon India 2025",
+    category: "Video Edits",
+    year: "2025",
+    client: "PTW Group",
+    image: semiconImg,
+    description:
+      "Event coverage and post-production edit for the Semicon India 2025 expo.",
     fullDescription:
-      "Velocity captures the essence of Tesla's commitment to innovation and speed. Through dynamic camera movements, sleek 3D renders, and electrifying visual effects, we created a commercial that embodies the future of transportation.",
-    services: ["3D Visualization", "Particle Effects", "Camera Animation", "Post-Production"],
-    duration: "30 seconds",
-    gradient: "from-green-500/50 via-green-500/20",
+      "End-to-end video editing for Semicon India 2025 — event highlights, booth tours and brand storytelling cut into a polished promotional package.",
+    services: ["Video Editing", "Color Grading", "Sound Mix", "Motion Titles"],
+    duration: "Event Edit",
+    gradient: "from-cyan-500/50 via-cyan-500/20",
+  },
+  {
+    id: 4,
+    title: "Office Interior Walkthrough",
+    category: "Visualization",
+    year: "2024",
+    client: "Private Client",
+    image: officeImg,
+    description:
+      "Photoreal 3D visualization and walkthrough of a modern office interior.",
+    fullDescription:
+      "A photoreal interior visualization and animated walkthrough of a contemporary office space, designed to help the client experience the design before construction.",
+    services: ["3D Visualization", "Lighting", "Texturing", "Walkthrough"],
+    duration: "Walkthrough",
+    gradient: "from-purple-500/50 via-purple-500/20",
+  },
+  {
+    id: 5,
+    title: "Kitchen Interior Walkthrough",
+    category: "Visualization",
+    year: "2024",
+    client: "Private Client",
+    image: kitchenImg,
+    description:
+      "Photoreal kitchen interior visualization with a smooth animated walkthrough.",
+    fullDescription:
+      "A high-fidelity 3D visualization of a modern modular kitchen, presented as a cinematic walkthrough showcasing materials, lighting and spatial flow.",
+    services: ["3D Visualization", "Material Design", "Lighting", "Walkthrough"],
+    duration: "Walkthrough",
+    gradient: "from-emerald-500/50 via-emerald-500/20",
   },
 ];
 
