@@ -141,7 +141,7 @@ export const CTASection = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-accent to-primary rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
 
             <Link
-              to="/contact"
+              to="/contact#contact-form"
               className="relative inline-flex items-center justify-center gap-3 sm:gap-4 px-8 sm:px-12 py-4 sm:py-6 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground font-semibold text-base sm:text-lg rounded-full transition-all shadow-2xl shadow-primary/25 w-full sm:w-auto"
             >
               Start Your Project
