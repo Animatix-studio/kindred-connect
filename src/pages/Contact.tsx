@@ -123,7 +123,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-14 sm:py-20">
+      <section id="contact-form" className="py-14 sm:py-20 scroll-mt-24">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-10 sm:gap-20">
             {/* Contact Form */}
@@ -249,8 +249,9 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
               className="lg:pl-10"
+              id="contact-info"
             >
-              <div className="lg:sticky lg:top-32">
+              <div className="lg:sticky lg:top-32 scroll-mt-24">
                 <h2 className="text-xl sm:text-2xl font-display font-bold mb-6 sm:mb-10">
                   Contact Information
                 </h2>
