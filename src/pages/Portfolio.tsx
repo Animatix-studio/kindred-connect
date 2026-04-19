@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { ArrowUpRight, Play } from "lucide-react";
+import { ArrowUpRight, Play, X } from "lucide-react";
 
 import semiconImg from "@/assets/portfolio/semicon-india.jpg";
 import delhiImg from "@/assets/portfolio/delhi-vidhansabha.jpg";
@@ -9,7 +10,20 @@ import officeImg from "@/assets/portfolio/office-interior.jpg";
 import kitchenImg from "@/assets/portfolio/kitchen-interior.jpg";
 import waterImg from "@/assets/portfolio/pure-water.jpg";
 
-const projects = [
+import officeVideo from "@/assets/portfolio/office-interior.mp4";
+import kitchenVideo from "@/assets/portfolio/kitchen-interior.mp4";
+import semiconVideo from "@/assets/portfolio/semicon-india.mp4";
+
+type Project = {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  gradient: string;
+  video?: string;
+};
+
+const projects: Project[] = [
   {
     id: 1,
     title: "Delhi Vidhansabha",
@@ -30,6 +44,7 @@ const projects = [
     category: "Video Edits",
     image: semiconImg,
     gradient: "from-cyan-500/40 via-cyan-500/20",
+    video: semiconVideo,
   },
   {
     id: 4,
@@ -37,6 +52,7 @@ const projects = [
     category: "Visualization",
     image: officeImg,
     gradient: "from-purple-500/40 via-purple-500/20",
+    video: officeVideo,
   },
   {
     id: 5,
@@ -44,10 +60,13 @@ const projects = [
     category: "Visualization",
     image: kitchenImg,
     gradient: "from-emerald-500/40 via-emerald-500/20",
+    video: kitchenVideo,
   },
 ];
 
 const Portfolio = () => {
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+
   return (
     <main className="min-h-screen bg-background overflow-x-hidden">
       <Navbar />
@@ -109,7 +128,10 @@ const Portfolio = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                <div className="group cursor-pointer">
+                <div
+                  className="group cursor-pointer"
+                  onClick={() => project.video && setActiveProject(project)}
+                >
                   {/* Title above the card */}
                   <div className="mb-3 sm:mb-4 flex items-end justify-between gap-3 px-1">
                     <h3 className="text-lg sm:text-2xl md:text-3xl font-display font-bold leading-tight group-hover:text-primary transition-colors duration-300">
@@ -121,7 +143,6 @@ const Portfolio = () => {
                   </div>
 
                   <div className="relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden border border-border/40 shadow-xl">
-                    {/* Image */}
                     <motion.img
                       src={project.image}
                       alt={project.title}
@@ -130,13 +151,11 @@ const Portfolio = () => {
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     />
 
-                    {/* Gradient overlays */}
                     <div
                       className={`absolute inset-0 bg-gradient-to-t ${project.gradient} to-transparent opacity-60`}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent opacity-90" />
 
-                    {/* Shine */}
                     <motion.div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                       style={{
@@ -151,27 +170,26 @@ const Portfolio = () => {
                       }}
                     />
 
-                    {/* Hover hint */}
                     <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span className="text-primary text-xs sm:text-sm font-medium">
-                        View Project →
+                        {project.video ? "Play Video →" : "Coming Soon"}
                       </span>
                     </div>
 
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 sm:group-hover:opacity-100 transition-all duration-500 pointer-events-none">
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-2xl"
-                      >
-                        <Play
-                          className="text-primary-foreground ml-1"
-                          size={22}
-                        />
-                      </motion.div>
-                    </div>
+                    {project.video && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 pointer-events-none">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-2xl"
+                        >
+                          <Play
+                            className="text-primary-foreground ml-1"
+                            size={22}
+                          />
+                        </motion.div>
+                      </div>
+                    )}
 
-                    {/* Arrow */}
                     <div className="hidden sm:block absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="w-11 h-11 rounded-full bg-foreground/10 backdrop-blur-md flex items-center justify-center border border-foreground/15">
                         <ArrowUpRight className="text-foreground" size={18} />
@@ -188,6 +206,54 @@ const Portfolio = () => {
           </p>
         </div>
       </section>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {activeProject && activeProject.video && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
+            onClick={() => setActiveProject(null)}
+          >
+            <motion.button
+              onClick={() => setActiveProject(null)}
+              className="absolute top-5 right-5 sm:top-8 sm:right-8 w-12 h-12 rounded-full bg-foreground/10 backdrop-blur-md flex items-center justify-center border border-foreground/15 hover:bg-foreground/20 transition-colors z-10"
+              aria-label="Close video"
+            >
+              <X className="text-foreground" size={20} />
+            </motion.button>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-5xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="mb-4 px-1">
+                <h3 className="text-xl sm:text-3xl font-display font-bold">
+                  {activeProject.title}
+                </h3>
+                <span className="text-[10px] sm:text-xs font-medium tracking-[0.15em] uppercase text-muted-foreground">
+                  {activeProject.category}
+                </span>
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/40 shadow-2xl bg-black">
+                <video
+                  src={activeProject.video}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </main>
