@@ -28,10 +28,12 @@ const footerLinks = [
   {
     title: "Services",
     links: [
-      { name: "2D Animation", path: "/services" },
-      { name: "3D Animation", path: "/services" },
-      { name: "Motion Graphics", path: "/services" },
-      { name: "Character Design", path: "/services" },
+      { name: "2D Animation", path: "/services#2d-animation" },
+      { name: "3D Animation", path: "/services#3d-animation" },
+      { name: "Motion Graphics", path: "/services#motion-graphics" },
+      { name: "Character Design", path: "/services#character-design" },
+      { name: "Graphics Design", path: "/services#graphics-design" },
+      { name: "Digital Illustrations", path: "/services#digital-illustrations" },
     ],
   },
   {
