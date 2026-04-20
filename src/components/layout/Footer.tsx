@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Instagram,
-  Twitter,
   Linkedin,
   Youtube,
   ArrowUpRight,
@@ -10,8 +9,7 @@ import {
 import animatixLogo from "@/assets/animatix-logo.png";
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com/animatix.official", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Youtube, href: "#", label: "YouTube" },
 ];
@@ -77,6 +75,8 @@ export const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
                   className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl premium-card flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all duration-300"
