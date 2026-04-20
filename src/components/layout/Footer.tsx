@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Instagram,
-  Twitter,
   Linkedin,
   Youtube,
   ArrowUpRight,
@@ -10,8 +9,7 @@ import {
 import animatixLogo from "@/assets/animatix-logo.png";
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com/animatix.official", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Youtube, href: "#", label: "YouTube" },
 ];
