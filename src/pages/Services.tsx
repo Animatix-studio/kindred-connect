@@ -215,8 +215,6 @@ const Services = () => {
                 whileHover={{ y: -8, transition: { duration: 0.4 } }}
                 className={`group relative ${sid && highlightedId === sid ? "target-highlight" : ""}`}
               >
-                className="group relative"
-              >
                 <div className="relative p-5 sm:p-7 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
                   <div
                     className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
