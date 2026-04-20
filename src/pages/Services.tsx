@@ -204,13 +204,17 @@ const Services = () => {
             animate="visible"
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto"
           >
-            {services.map((service) => (
+            {services.map((service) => {
+              const sid = (service as { id?: string }).id;
+              return (
               <motion.div
                 key={service.title}
-                id={(service as { id?: string }).id}
+                id={sid}
                 style={{ scrollMarginTop: "120px" }}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.4 } }}
+                className={`group relative ${sid && highlightedId === sid ? "target-highlight" : ""}`}
+              >
                 className="group relative"
               >
                 <div className="relative p-5 sm:p-7 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
