@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Wand2,
   Film,
@@ -147,6 +147,19 @@ const packages = [
 
 const Services = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  const { hash } = useLocation();
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace("#", "");
+    const t = setTimeout(() => {
+      setHighlightedId(id);
+      const clear = setTimeout(() => setHighlightedId(null), 1600);
+      return () => clearTimeout(clear);
+    }, 400);
+    return () => clearTimeout(t);
+  }, [hash]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -191,14 +204,16 @@ const Services = () => {
             animate="visible"
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-5xl mx-auto"
           >
-            {services.map((service) => (
+            {services.map((service) => {
+              const sid = (service as { id?: string }).id;
+              return (
               <motion.div
                 key={service.title}
-                id={(service as { id?: string }).id}
+                id={sid}
                 style={{ scrollMarginTop: "120px" }}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.4 } }}
-                className="group relative"
+                className={`group relative ${sid && highlightedId === sid ? "target-highlight" : ""}`}
               >
                 <div className="relative p-5 sm:p-7 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border border-white/[0.08] hover:border-primary/30 transition-all duration-500 h-full">
                   <div
@@ -227,7 +242,8 @@ const Services = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </section>

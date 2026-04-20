@@ -329,14 +329,17 @@ const Contact = () => {
                   <p className="text-sm text-muted-foreground mb-6">
                     Need a faster response? Schedule a call with our team.
                   </p>
-                  <motion.button
+                  <motion.a
+                    href="https://wa.me/918828293396?text=Hi%20AnimatiX%2C%20I%27d%20like%20to%20schedule%20a%20call%20to%20discuss%20a%20project."
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.02, x: 3 }}
                     whileTap={{ scale: 0.98 }}
-                    className="flex items-center gap-2 text-sm font-medium text-primary"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary"
                   >
-                    Schedule a Call
+                    Schedule a Call on WhatsApp
                     <ArrowRight size={16} />
-                  </motion.button>
+                  </motion.a>
                 </motion.div>
               </div>
             </motion.div>
