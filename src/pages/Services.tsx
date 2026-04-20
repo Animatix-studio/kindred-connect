@@ -147,6 +147,19 @@ const packages = [
 
 const Services = () => {
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  const { hash } = useLocation();
+  const [highlightedId, setHighlightedId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace("#", "");
+    const t = setTimeout(() => {
+      setHighlightedId(id);
+      const clear = setTimeout(() => setHighlightedId(null), 1600);
+      return () => clearTimeout(clear);
+    }, 400);
+    return () => clearTimeout(t);
+  }, [hash]);
 
   return (
     <main className="min-h-screen bg-background">
