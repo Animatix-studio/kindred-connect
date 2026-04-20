@@ -15,10 +15,62 @@ import {
   Phone,
   ArrowRight,
   Check,
+  Sparkles,
+  Palette,
+  Image as ImageIcon,
 } from "lucide-react";
 
 const services = [
   {
+    id: "2d-animation",
+    icon: Film,
+    title: "2D Animation",
+    description: "Captivating two-dimensional animations that bring stories and ideas to vivid life.",
+    gradient: "from-amber-500/20 to-orange-500/10",
+    iconGradient: "from-amber-500 to-orange-500",
+  },
+  {
+    id: "3d-animation",
+    icon: Box,
+    title: "3D Animation",
+    description: "Stunning three-dimensional worlds and characters that push creative boundaries.",
+    gradient: "from-purple-500/20 to-pink-500/10",
+    iconGradient: "from-purple-500 to-pink-500",
+  },
+  {
+    id: "motion-graphics",
+    icon: Sparkles,
+    title: "Motion Graphics",
+    description: "Dynamic visual storytelling for brands, titles, and promotional content.",
+    gradient: "from-cyan-500/20 to-blue-500/10",
+    iconGradient: "from-cyan-500 to-blue-500",
+  },
+  {
+    id: "character-design",
+    icon: Palette,
+    title: "Character Design",
+    description: "Memorable characters with unique personalities that resonate with audiences.",
+    gradient: "from-green-500/20 to-emerald-500/10",
+    iconGradient: "from-green-500 to-emerald-500",
+  },
+  {
+    id: "graphics-design",
+    icon: PenTool,
+    title: "Graphics Design",
+    description: "Eye-catching visual designs for branding, marketing, and digital media.",
+    gradient: "from-rose-500/20 to-red-500/10",
+    iconGradient: "from-rose-500 to-red-500",
+  },
+  {
+    id: "digital-illustrations",
+    icon: ImageIcon,
+    title: "Digital Illustrations",
+    description: "Beautiful hand-crafted digital artwork that tells your story with artistry and precision.",
+    gradient: "from-indigo-500/20 to-violet-500/10",
+    iconGradient: "from-indigo-500 to-violet-500",
+  },
+  {
+    id: "concept-art",
     icon: Wand2,
     title: "Concept Art",
     description: "Imaginative concept development that sets the foundation for visual excellence and creative storytelling.",
@@ -142,6 +194,8 @@ const Services = () => {
             {services.map((service) => (
               <motion.div
                 key={service.title}
+                id={(service as { id?: string }).id}
+                style={{ scrollMarginTop: "120px" }}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.4 } }}
                 className="group relative"
