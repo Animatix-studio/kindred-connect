@@ -194,6 +194,8 @@ const Services = () => {
             {services.map((service) => (
               <motion.div
                 key={service.title}
+                id={(service as { id?: string }).id}
+                style={{ scrollMarginTop: "120px" }}
                 variants={itemVariants}
                 whileHover={{ y: -8, transition: { duration: 0.4 } }}
                 className="group relative"
