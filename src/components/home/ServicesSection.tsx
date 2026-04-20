@@ -13,6 +13,7 @@ import ourVisionBg from "@/assets/our-vision-bg.jpg";
 
 const services = [
   {
+    id: "2d-animation",
     icon: Film,
     title: "2D Animation",
     description:
@@ -21,6 +22,7 @@ const services = [
     iconGradient: "from-amber-500 to-orange-500",
   },
   {
+    id: "3d-animation",
     icon: Box,
     title: "3D Animation",
     description:
@@ -29,6 +31,7 @@ const services = [
     iconGradient: "from-purple-500 to-pink-500",
   },
   {
+    id: "motion-graphics",
     icon: Sparkles,
     title: "Motion Graphics",
     description:
@@ -37,6 +40,7 @@ const services = [
     iconGradient: "from-cyan-500 to-blue-500",
   },
   {
+    id: "character-design",
     icon: Palette,
     title: "Character Design",
     description:
@@ -45,6 +49,7 @@ const services = [
     iconGradient: "from-green-500 to-emerald-500",
   },
   {
+    id: "graphics-design",
     icon: PenTool,
     title: "Graphics Design",
     description:
@@ -53,6 +58,7 @@ const services = [
     iconGradient: "from-rose-500 to-red-500",
   },
   {
+    id: "digital-illustrations",
     icon: Image,
     title: "Digital Illustrations",
     description:
