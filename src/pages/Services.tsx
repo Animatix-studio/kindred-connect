@@ -524,6 +524,65 @@ const Services = () => {
               );
             })}
           </motion.div>
+
+          {/* Contact CTA - appears when a package is selected (2D or 3D) */}
+          <AnimatePresence>
+            {selectedPackage && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="mt-10 sm:mt-14 max-w-2xl mx-auto"
+              >
+                <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border border-primary/20 text-center">
+                  <h3 className="text-lg sm:text-xl font-display font-bold mb-2">
+                    Interested in the{" "}
+                    <span className="text-primary">
+                      {packages.find((p) => p.id === selectedPackage)?.label}
+                    </span>
+                    ?
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-6">
+                    Get in touch with us to learn more and enroll in this program.
+                  </p>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                    <motion.a
+                      href="mailto:animatixanimation@gmail.com"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full text-sm w-full sm:w-auto justify-center"
+                      onClick={(e) => {
+                        const isThreeD = selectedPackage?.startsWith("3d-");
+                        const courseType = isThreeD ? "3D Animation" : "2D Animation";
+                        const label = packages.find((p) => p.id === selectedPackage)?.label;
+                        e.currentTarget.href = `mailto:animatixanimation@gmail.com?subject=Enquiry about ${courseType} - ${label}`;
+                      }}
+                    >
+                      <Mail className="w-4 h-4" />
+                      Email Us
+                    </motion.a>
+                    <motion.a
+                      href="tel:+918828293396"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="inline-flex items-center gap-2 px-6 py-3 border border-primary/30 hover:border-primary/60 rounded-full text-sm font-medium text-foreground w-full sm:w-auto justify-center transition-colors"
+                    >
+                      <Phone className="w-4 h-4" />
+                      +91 8828293396
+                    </motion.a>
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                    >
+                      Or visit Contact page
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
