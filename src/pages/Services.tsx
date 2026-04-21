@@ -512,9 +512,6 @@ const Services = () => {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="text-center mb-12 sm:mb-16"
           >
-            <span className="inline-block text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-5">
-              Specialized Track
-            </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
               3D Animation
             </h2>
