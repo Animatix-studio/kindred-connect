@@ -37,8 +37,6 @@ const footerLinks = [
   {
     title: "Resources",
     links: [
-      { name: "Blog", path: "#" },
-      { name: "Case Studies", path: "#" },
       { name: "Contact", path: "/contact#contact-info" },
     ],
   },
