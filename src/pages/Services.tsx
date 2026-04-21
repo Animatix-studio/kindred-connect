@@ -143,6 +143,68 @@ const packages = [
   { id: "basic", label: "Basic Package", subtitle: "Package 1" },
   { id: "intermediate", label: "Intermediate Package", subtitle: "Package 2" },
   { id: "premium", label: "Premium Package", subtitle: "Package 3" },
+  { id: "3d-basic", label: "3D Basic Package", subtitle: "Package 1" },
+  { id: "3d-intermediate", label: "3D Intermediate Package", subtitle: "Package 2" },
+  { id: "3d-premium", label: "3D Premium Package", subtitle: "Package 3" },
+];
+
+type CourseItem = { title: string; description: string };
+type CoursePackage = {
+  id: string;
+  subtitle: string;
+  title: string;
+  tagline?: string;
+  price?: string;
+  description: string;
+  items: CourseItem[];
+  gradient: string;
+  highlighted?: boolean;
+};
+
+const animation3DPackages: CoursePackage[] = [
+  {
+    id: "3d-basic",
+    subtitle: "Package 1",
+    title: "3D Basic Package",
+    description: "An introductory course focusing on the core concepts of 3D motion.",
+    gradient: "from-amber-500/20 to-orange-500/10",
+    items: [
+      { title: "Introduction to the 3D Process", description: "Understanding the stages of a professional 3D production." },
+      { title: "Evolution of Animation", description: "A look into how 3D animation transformed the industry." },
+      { title: "The Mechanics of Motion", description: "Learning how physics, timing, and spacing work in a digital 3D space." },
+      { title: "Foundational Practice", description: "Basic exercises to get comfortable with industry-standard 3D software." },
+    ],
+  },
+  {
+    id: "3d-intermediate",
+    subtitle: "Package 2",
+    title: "3D Intermediate Package",
+    tagline: "Intro to Advanced",
+    description: "Move beyond the basics and start creating functional 3D sequences.",
+    gradient: "from-purple-500/20 to-pink-500/10",
+    highlighted: true,
+    items: [
+      { title: "Advanced Animation Concepts", description: "Deep dive into the 12 principles of animation applied to 3D." },
+      { title: "Technical Workflow", description: "Exploring the 'why' and 'how' behind complex character movements." },
+      { title: "Basic to Advanced Practice", description: "Progressive exercises ranging from simple object motion to complex character actions." },
+      { title: "Project Compilation", description: "Learning how to render and compile small animation clips into a cohesive reel." },
+    ],
+  },
+  {
+    id: "3d-premium",
+    subtitle: "Package 3",
+    title: "3D Premium Package",
+    tagline: "Modelling + Animation",
+    description: "Our most comprehensive program, covering the full spectrum from asset creation to final animation.",
+    gradient: "from-cyan-500/20 to-blue-500/10",
+    items: [
+      { title: "Fundamentals of Drawing", description: "Building the artistic foundation needed for character and prop design." },
+      { title: "Introduction to 3D Modelling", description: "Learning the basics of poly-modelling, topology, and structure." },
+      { title: "Advanced Animation Techniques", description: "High-level practice focusing on performance, weight, and fluid motion." },
+      { title: "Background & World Building", description: "Developing 3D environments and assets to house your animations." },
+      { title: "Studio-Level Compilation", description: "Bringing your custom-modelled assets and animations together for a professional-grade project." },
+    ],
+  },
 ];
 
 const Services = () => {
