@@ -502,6 +502,90 @@ const Services = () => {
         </div>
       </section>
 
+      {/* Learn From Us — 3D Animation Section */}
+      <section className="py-16 sm:py-24 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center mb-12 sm:mb-16"
+          >
+            <span className="inline-block text-primary text-sm font-semibold tracking-[0.2em] uppercase mb-5">
+              Learn From Us
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
+              3D Animation
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed">
+              Upgrade your creative potential with our specialized 3D animation tracks. We offer three tiers designed to take you from a curious beginner to a skilled 3D artist.
+            </p>
+            <div className="line-gradient w-24 mx-auto mt-8" />
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          >
+            {animation3DPackages.map((pkg) => {
+              const isSelected = selectedPackage === pkg.id;
+              return (
+                <motion.div key={pkg.id} variants={itemVariants} className="group relative">
+                  <div
+                    onClick={() => setSelectedPackage(isSelected ? null : pkg.id)}
+                    className={`relative p-6 sm:p-8 rounded-xl sm:rounded-2xl bg-background/40 backdrop-blur-md border cursor-pointer transition-all duration-500 h-full ${
+                      isSelected
+                        ? "border-primary ring-2 ring-primary/20"
+                        : pkg.highlighted
+                        ? "border-primary/20 hover:border-primary/40 ring-1 ring-primary/10"
+                        : "border-white/[0.08] hover:border-primary/30"
+                    }`}
+                  >
+                    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${pkg.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <div className="relative">
+                      <div className="flex items-center justify-between mb-3">
+                        <span className={`inline-block text-xs font-semibold tracking-widest uppercase ${pkg.highlighted ? "text-primary" : "text-muted-foreground"}`}>
+                          {pkg.subtitle}
+                        </span>
+                        {isSelected && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="w-6 h-6 rounded-full bg-primary flex items-center justify-center"
+                          >
+                            <Check className="w-4 h-4 text-primary-foreground" />
+                          </motion.div>
+                        )}
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-display font-bold mb-2 text-primary">{pkg.title}</h3>
+                      {pkg.tagline && (
+                        <p className="text-muted-foreground mb-1 italic text-xs">{pkg.tagline}</p>
+                      )}
+                      <p className="text-muted-foreground text-sm mb-6">{pkg.description}</p>
+                      <ul className="space-y-4">
+                        {pkg.items.map((item) => (
+                          <li key={item.title} className="flex gap-3">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                            <div>
+                              <span className="font-semibold text-sm text-foreground">{item.title}</span>
+                              <p className="text-muted-foreground text-xs mt-0.5">{item.description}</p>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
