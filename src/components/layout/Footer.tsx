@@ -10,8 +10,8 @@ import animatixLogo from "@/assets/animatix-logo.png";
 
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com/animatix.official", label: "Instagram" },
-  { icon: Linkedin, href: "https://linkedin.com/in/animatix.official", label: "LinkedIn" },
-  { icon: Facebook, href: "https://facebook.com/animatix.official", label: "Facebook" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/animatix-studio/", label: "LinkedIn" },
+  { icon: Facebook, href: "https://facebook.com/animatix-studio", label: "Facebook" },
 ];
 
 const footerLinks = [
