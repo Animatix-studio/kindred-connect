@@ -246,7 +246,7 @@ const Portfolio = () => {
 
       {/* Video Modal */}
       <AnimatePresence>
-        {activeProject && activeProject.video && (
+        {activeProject && (activeProject.video || activeProject.vimeoId) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -279,18 +279,29 @@ const Portfolio = () => {
                 </span>
               </div>
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/40 shadow-2xl bg-black">
-                <video
-                  src={activeProject.video}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="w-full h-full object-contain"
-                />
+                {activeProject.vimeoId ? (
+                  <iframe
+                    src={`https://player.vimeo.com/video/${activeProject.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    title={activeProject.title}
+                  />
+                ) : (
+                  <video
+                    src={activeProject.video}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="w-full h-full object-contain"
+                  />
+                )}
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
 
       <Footer />
     </main>
