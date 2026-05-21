@@ -160,7 +160,10 @@ const Portfolio = () => {
               >
                 <div
                   className="group cursor-pointer"
-                  onClick={() => project.video && setActiveProject(project)}
+                  onClick={() =>
+                    (project.video || project.vimeoId) &&
+                    setActiveProject(project)
+                  }
                 >
                   {/* Title above the card */}
                   <div className="mb-3 sm:mb-4 flex items-end justify-between gap-3 px-1">
@@ -176,6 +179,7 @@ const Portfolio = () => {
                     <motion.img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover"
                       whileHover={{ scale: 1.08 }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -202,11 +206,13 @@ const Portfolio = () => {
 
                     <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span className="text-primary text-xs sm:text-sm font-medium">
-                        {project.video ? "Play Video →" : "Coming Soon"}
+                        {project.video || project.vimeoId
+                          ? "Play Video →"
+                          : "Coming Soon"}
                       </span>
                     </div>
 
-                    {project.video && (
+                    {(project.video || project.vimeoId) && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 pointer-events-none">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -219,6 +225,7 @@ const Portfolio = () => {
                         </motion.div>
                       </div>
                     )}
+
 
                     <div className="hidden sm:block absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="w-11 h-11 rounded-full bg-foreground/10 backdrop-blur-md flex items-center justify-center border border-foreground/15">
