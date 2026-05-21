@@ -5,10 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { ArrowUpRight, Play, X } from "lucide-react";
 
 import semiconImg from "@/assets/portfolio/semicon-india.jpg";
-import delhiImg from "@/assets/portfolio/delhi-vidhansabha.jpg";
 import officeImg from "@/assets/portfolio/office-interior.jpg";
 import kitchenImg from "@/assets/portfolio/kitchen-interior.jpg";
-import waterImg from "@/assets/portfolio/pure-water.jpg";
 
 import officeVideo from "@/assets/portfolio/office-interior.mp4";
 import kitchenVideo from "@/assets/portfolio/kitchen-interior.mp4";
@@ -21,25 +19,57 @@ type Project = {
   image: string;
   gradient: string;
   video?: string;
+  vimeoId?: string;
 };
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Delhi Vidhansabha",
-    category: "Motion Graphics & 3D Animation",
-    image: delhiImg,
+    title: "Delhi Vidhan Sabha — Structure Building",
+    category: "3D Animation",
+    image:
+      "https://i.vimeocdn.com/video/2150425995-a16d2169bba420a5e03609ace0bdfdfd9722c3bc90693f88d6aced36f6a735ed-d_640x360",
     gradient: "from-amber-500/40 via-amber-500/20",
+    vimeoId: "1186673821",
   },
   {
     id: 2,
-    title: "Journey of Pure Water To Bottled",
-    category: "3D Animation & Modelling",
-    image: waterImg,
+    title: "The Journey of Pure Water — Raw to Bottled",
+    category: "3D Animation, Modelling & Motion Graphics",
+    image:
+      "https://i.vimeocdn.com/video/2150423740-774498019e92e5f879ab59998011dc67f97ec6583109e6a0e0ae52218644c52c-d_640x360",
     gradient: "from-blue-500/40 via-blue-500/20",
+    vimeoId: "1186672130",
   },
   {
     id: 3,
+    title: "Tanha Safar — Musical Lofi",
+    category: "2D Animation",
+    image:
+      "https://i.vimeocdn.com/video/2150422503-dc3a7691ea2cfd0721fa3396c19f7603150c2a0dc4759ad07c2a4c68ba1c6d0e-d_640x360",
+    gradient: "from-rose-500/40 via-rose-500/20",
+    vimeoId: "1186671083",
+  },
+  {
+    id: 4,
+    title: "Delhi Vidhan Sabha",
+    category: "Motion Graphics & Video Editing",
+    image:
+      "https://i.vimeocdn.com/video/2150422147-6e632e88f89a69e1a88b0ac7dcaec01e8c2d36e2ae795b4a46b4c6380526138f-d_640x360",
+    gradient: "from-amber-500/40 via-orange-500/20",
+    vimeoId: "1186670775",
+  },
+  {
+    id: 5,
+    title: "Diamantra — Apni Pehchan, Apni Kayani",
+    category: "2D Cel Animation",
+    image:
+      "https://i.vimeocdn.com/video/2150420817-8926d7afda392dd8fa26396b67f8660ecf3a786a836767b03ee92e7ae5648769-d_640x360",
+    gradient: "from-fuchsia-500/40 via-fuchsia-500/20",
+    vimeoId: "1186669714",
+  },
+  {
+    id: 6,
     title: "Semicon India 2025",
     category: "Video Edits",
     image: semiconImg,
@@ -47,7 +77,7 @@ const projects: Project[] = [
     video: semiconVideo,
   },
   {
-    id: 4,
+    id: 7,
     title: "Office Interior Walkthrough",
     category: "Visualization",
     image: officeImg,
@@ -55,7 +85,7 @@ const projects: Project[] = [
     video: officeVideo,
   },
   {
-    id: 5,
+    id: 8,
     title: "Kitchen Interior Walkthrough",
     category: "Visualization",
     image: kitchenImg,
