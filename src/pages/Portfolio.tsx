@@ -5,10 +5,8 @@ import { Footer } from "@/components/layout/Footer";
 import { ArrowUpRight, Play, X } from "lucide-react";
 
 import semiconImg from "@/assets/portfolio/semicon-india.jpg";
-import delhiImg from "@/assets/portfolio/delhi-vidhansabha.jpg";
 import officeImg from "@/assets/portfolio/office-interior.jpg";
 import kitchenImg from "@/assets/portfolio/kitchen-interior.jpg";
-import waterImg from "@/assets/portfolio/pure-water.jpg";
 
 import officeVideo from "@/assets/portfolio/office-interior.mp4";
 import kitchenVideo from "@/assets/portfolio/kitchen-interior.mp4";
@@ -21,25 +19,57 @@ type Project = {
   image: string;
   gradient: string;
   video?: string;
+  vimeoId?: string;
 };
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "Delhi Vidhansabha",
-    category: "Motion Graphics & 3D Animation",
-    image: delhiImg,
+    title: "Delhi Vidhan Sabha — Structure Building",
+    category: "3D Animation",
+    image:
+      "https://i.vimeocdn.com/video/2150425995-a16d2169bba420a5e03609ace0bdfdfd9722c3bc90693f88d6aced36f6a735ed-d_640x360",
     gradient: "from-amber-500/40 via-amber-500/20",
+    vimeoId: "1186673821",
   },
   {
     id: 2,
-    title: "Journey of Pure Water To Bottled",
-    category: "3D Animation & Modelling",
-    image: waterImg,
+    title: "The Journey of Pure Water — Raw to Bottled",
+    category: "3D Animation, Modelling & Motion Graphics",
+    image:
+      "https://i.vimeocdn.com/video/2150423740-774498019e92e5f879ab59998011dc67f97ec6583109e6a0e0ae52218644c52c-d_640x360",
     gradient: "from-blue-500/40 via-blue-500/20",
+    vimeoId: "1186672130",
   },
   {
     id: 3,
+    title: "Tanha Safar — Musical Lofi",
+    category: "2D Animation",
+    image:
+      "https://i.vimeocdn.com/video/2150422503-dc3a7691ea2cfd0721fa3396c19f7603150c2a0dc4759ad07c2a4c68ba1c6d0e-d_640x360",
+    gradient: "from-rose-500/40 via-rose-500/20",
+    vimeoId: "1186671083",
+  },
+  {
+    id: 4,
+    title: "Delhi Vidhan Sabha",
+    category: "Motion Graphics & Video Editing",
+    image:
+      "https://i.vimeocdn.com/video/2150422147-6e632e88f89a69e1a88b0ac7dcaec01e8c2d36e2ae795b4a46b4c6380526138f-d_640x360",
+    gradient: "from-amber-500/40 via-orange-500/20",
+    vimeoId: "1186670775",
+  },
+  {
+    id: 5,
+    title: "Diamantra — Apni Pehchan, Apni Kayani",
+    category: "2D Cel Animation",
+    image:
+      "https://i.vimeocdn.com/video/2150420817-8926d7afda392dd8fa26396b67f8660ecf3a786a836767b03ee92e7ae5648769-d_640x360",
+    gradient: "from-fuchsia-500/40 via-fuchsia-500/20",
+    vimeoId: "1186669714",
+  },
+  {
+    id: 6,
     title: "Semicon India 2025",
     category: "Video Edits",
     image: semiconImg,
@@ -47,7 +77,7 @@ const projects: Project[] = [
     video: semiconVideo,
   },
   {
-    id: 4,
+    id: 7,
     title: "Office Interior Walkthrough",
     category: "Visualization",
     image: officeImg,
@@ -55,7 +85,7 @@ const projects: Project[] = [
     video: officeVideo,
   },
   {
-    id: 5,
+    id: 8,
     title: "Kitchen Interior Walkthrough",
     category: "Visualization",
     image: kitchenImg,
@@ -130,7 +160,10 @@ const Portfolio = () => {
               >
                 <div
                   className="group cursor-pointer"
-                  onClick={() => project.video && setActiveProject(project)}
+                  onClick={() =>
+                    (project.video || project.vimeoId) &&
+                    setActiveProject(project)
+                  }
                 >
                   {/* Title above the card */}
                   <div className="mb-3 sm:mb-4 flex items-end justify-between gap-3 px-1">
@@ -146,6 +179,7 @@ const Portfolio = () => {
                     <motion.img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover"
                       whileHover={{ scale: 1.08 }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -172,11 +206,13 @@ const Portfolio = () => {
 
                     <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <span className="text-primary text-xs sm:text-sm font-medium">
-                        {project.video ? "Play Video →" : "Coming Soon"}
+                        {project.video || project.vimeoId
+                          ? "Play Video →"
+                          : "Coming Soon"}
                       </span>
                     </div>
 
-                    {project.video && (
+                    {(project.video || project.vimeoId) && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-500 pointer-events-none">
                         <motion.div
                           whileHover={{ scale: 1.1 }}
@@ -189,6 +225,7 @@ const Portfolio = () => {
                         </motion.div>
                       </div>
                     )}
+
 
                     <div className="hidden sm:block absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <div className="w-11 h-11 rounded-full bg-foreground/10 backdrop-blur-md flex items-center justify-center border border-foreground/15">
@@ -209,7 +246,7 @@ const Portfolio = () => {
 
       {/* Video Modal */}
       <AnimatePresence>
-        {activeProject && activeProject.video && (
+        {activeProject && (activeProject.video || activeProject.vimeoId) && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -242,18 +279,29 @@ const Portfolio = () => {
                 </span>
               </div>
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/40 shadow-2xl bg-black">
-                <video
-                  src={activeProject.video}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="w-full h-full object-contain"
-                />
+                {activeProject.vimeoId ? (
+                  <iframe
+                    src={`https://player.vimeo.com/video/${activeProject.vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                    title={activeProject.title}
+                  />
+                ) : (
+                  <video
+                    src={activeProject.video}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="w-full h-full object-contain"
+                  />
+                )}
               </div>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
 
       <Footer />
     </main>
